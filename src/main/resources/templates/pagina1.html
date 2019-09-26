@@ -1,10 +1,256 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Página1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+    <!-- CSS para los containers -->
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: slider-vertical;
+            width: 100%;
+            height: 250px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        #containerCentralIzquierdo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+            background-color: #cccccc;
+        }
+        #containerCentralDerecho {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #cccccc;
+        }
+        #containerSuperior {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #cccccc;
+            align-items: flex-end;
+        }
+        #containerSuperiorIzquierdo {
+            display: flex;
+            float: left;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #cccccc;
+        }
+        #containerSuperiorCentral {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #cccccc;
+        }
+        #containerSuperiorDerecho {
+            display: flex;
+            float: left;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #cccccc;
+        }
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider2 {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: greenyellow;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider2:before {
+            position: absolute;
+            content: "MP2.5";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider2 {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider2 {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider2:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+            content: "MP10";
+        }
+
+        /* Rounded sliders */
+        .slider2.round {
+            border-radius: 34px;
+        }
+
+        .slider2.round:before {
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-<div style="text-align: center;"><h1>Temuco</h1></div>
+
+<div id="containerSuperior">
+
+    <div id="containerSuperiorIzquierdo">
+        <div style="width: 10px">
+        <select name="Sector">
+            <option value="" selected disabled hidden >Sector</option>
+
+            <option>Todos los sectores</option>
+
+            <option>Amanecer</option>
+
+            <option>Centro</option>
+
+            <option>Pedro de Valdivia</option>
+
+            <option>Universidad</option>
+
+            <option>Sta. Rosa</option>
+
+        </select>
+        </div>
+    </div>
+
+    <div align = "center" id="containerSuperiorCentral">
+<h1 >Temuco</h1>
+    </div>
+
+    <div id="containerSuperiorDerecho">
+        <div style="width: 10px">
+        <input type="text" id="datepicker" />
+        </div>
+    </div>
+
+</div>
+
+<div id="containerCentralIzquierdo">
+
+<div align="left" style = "width:750px">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+        like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+
+<div align="right">
+
+    <div id="containerCentralDerecho">
+<div align="left">
+    <div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider2 round"></span>
+        </label>
+<div class="slidecontainer">
+    <input type="range" orient="vertical" min="0" max="100" value="50" class="slider" id="myRange">
+    <p align = "center">Valor: <span id="demo"></span></p>
+    </div>
+</div>
+</div>
+
+    <div align="right">
+        <img src="nivelContaminacion.png" width="auto" height="200">
+    </div>
+    </div>
+</div>
+
+</div>
+<!-- Script para la barra deslizadora -->
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
+<!-- Script para el selector de fecha -->
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+<!-- Script para elegir MP2.5 o MP10 -->
+<script>
+    function myFunction() {
+        var x = document.getElementById("myDIV");
+        if (x.innerHTML === "Hello") {
+            x.innerHTML = "Swapped text!";
+        } else {
+            x.innerHTML = "Hello";
+        }
+    }
+</script>
+
 </body>
 </html>
