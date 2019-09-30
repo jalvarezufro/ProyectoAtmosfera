@@ -15,7 +15,7 @@
         .slider {
             -webkit-appearance: slider-vertical;
             width: 100%;
-            height: 250px;
+            height: 345px;
             background: #d3d3d3;
             outline: none;
             opacity: 0.7;
@@ -43,25 +43,27 @@
             cursor: pointer;
         }
         #containerCentralIzquierdo {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-            background-color: #cccccc;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            background-color: #1c7cc6;
+            height: 575px;
         }
         #containerCentralDerecho {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
-            background-color: #cccccc;
+            background-color: #1c7cc6;
+            height: 575px;
         }
         #containerSuperior {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
-            background-color: #cccccc;
+            background-color: #042783;
             align-items: flex-end;
         }
         #containerSuperiorIzquierdo {
@@ -70,22 +72,24 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
-            background-color: #cccccc;
+            background-color: #042783;
+            height: 40px;
         }
         #containerSuperiorCentral {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
-            background-color: #cccccc;
+            background-color: #042783;
         }
         #containerSuperiorDerecho {
             display: flex;
-            float: left;
-            flex-direction: row;
+
+            flex-direction: column;
             flex-wrap: nowrap;
             justify-content: space-between;
-            background-color: #cccccc;
+            background-color: #042783;
+            height: 40px;
         }
         /* The switch - the box around the slider */
         .switch {
@@ -157,33 +161,33 @@
 <div id="containerSuperior">
 
     <div id="containerSuperiorIzquierdo">
-        <div style="width: 10px">
-        <select name="Sector">
-            <option value="" selected disabled hidden >Sector</option>
+        <div>
+            <select name="Sector" style="width:130px">
+                <option value="" selected disabled hidden>Seleccione sector</option>
 
-            <option>Todos los sectores</option>
+                <option>Todos los sectores</option>
 
-            <option>Amanecer</option>
+                <option>Amanecer</option>
 
-            <option>Centro</option>
+                <option>Centro</option>
 
-            <option>Pedro de Valdivia</option>
+                <option>Pedro de Valdivia</option>
 
-            <option>Universidad</option>
+                <option>Universidad</option>
 
-            <option>Sta. Rosa</option>
+                <option>Sta. Rosa</option>
 
-        </select>
+            </select>
         </div>
     </div>
 
-    <div align = "center" id="containerSuperiorCentral">
-<h1 >Temuco</h1>
+    <div id="containerSuperiorCentral">
+        <h1 style="color: white;width: 0px">Temuco</h1>
     </div>
 
     <div id="containerSuperiorDerecho">
-        <div style="width: 10px">
-        <input type="text" id="datepicker" />
+        <div >
+            <input type="text" id="datepicker" />
         </div>
     </div>
 
@@ -191,37 +195,37 @@
 
 <div id="containerCentralIzquierdo">
 
-<div align="left" style = "width:750px">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-        like Aldus PageMaker including versions of Lorem Ipsum.</p>
-</div>
-
-<div align="right">
-
-    <div id="containerCentralDerecho">
-<div align="left">
-    <div>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider2 round"></span>
-        </label>
-<div class="slidecontainer">
-    <input type="range" orient="vertical" min="0" max="100" value="50" class="slider" id="myRange">
-    <p align = "center">Valor: <span id="demo"></span></p>
+    <div align="left" style = "width:750px">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+            like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
-</div>
-</div>
 
     <div align="right">
-        <img src="nivelContaminacion.png" width="auto" height="200">
+
+        <div id="containerCentralDerecho">
+            <div align="left">
+                <div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider2 round"></span>
+                    </label>
+                    <div class="slidecontainer">
+                        <input type="range" orient="vertical" min="0" max="300" value="150" class="slider" id="myRange" >
+                        <p align = "center">Valor: <span id="demo"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div align="right" style="width: 400px; height: 350px">
+                <img src="nivelContaminacion.png" width="400" height="350" vspace="50">
+            </div>
+        </div>
     </div>
-    </div>
-</div>
 
 </div>
 <!-- Script para la barra deslizadora -->
