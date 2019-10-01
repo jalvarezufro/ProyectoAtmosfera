@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <header>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </header>
+    <meta charset="UTF-8">
 
     <!-- CSS para los containers -->
     <style>
@@ -91,6 +95,12 @@
             background-color: #042783;
             height: 40px;
         }
+        /*container para el scroll de la tabla*/
+        #div1{
+            overflow: scroll;
+            height: 575px;
+        }
+
         /* The switch - the box around the slider */
         .switch {
             position: relative;
@@ -154,6 +164,7 @@
         .slider2.round:before {
             border-radius: 50%;
         }
+
     </style>
 </head>
 <body>
@@ -162,7 +173,7 @@
 
     <div id="containerSuperiorIzquierdo">
         <div>
-            <select name="Sector" style="width:130px">
+            <select name="Sector" style="width:145px">
                 <option value="" selected disabled hidden>Seleccione sector</option>
 
                 <option>Todos los sectores</option>
@@ -195,14 +206,115 @@
 
 <div id="containerCentralIzquierdo">
 
-    <div align="left" style = "width:750px">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-            like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <div id="div1" align="left" style = "width:750px">
+
+            <table class="table table-striped">
+
+                <tr>
+                <th>Franja Horaria</th>
+                <th>Veces superadas</th>
+            </tr>
+                <tr>
+                    <th>00:00 - 01:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>01:00 - 02:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>02:00 - 03:00</th>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th>03:00 - 04:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>04:00 - 05:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>05:00 - 06:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>06:00 - 07:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>07:00 - 08:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>08:00 - 09:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>09:00 - 10:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>10:00 - 11:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>11:00 - 12:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>12:00 - 13:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>13:00 - 14:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>14:00 - 15:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>15:00 - 16:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>16:00 - 17:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>17:00 - 18:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>18:00 - 19:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>19:00 - 20:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>20:00 - 21:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>21:00 - 22:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>22:00 - 23:00</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th>23:00 - 24:00</th>
+                    <td>1</td>
+                </tr>
+
+            </tr>
+
+            </table>
+
     </div>
 
     <div align="right">
@@ -222,7 +334,7 @@
             </div>
 
             <div align="right" style="width: 400px; height: 350px">
-                <img src="nivelContaminacion.png" width="400" height="350" vspace="50">
+                <img src="nivelContaminacion.png" alt="Nivel de contaminación" width="400" height="350" vspace="50" /></a>
             </div>
         </div>
     </div>
