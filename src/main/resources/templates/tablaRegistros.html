@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <header>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    </header>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"> </title>
+</head>
+<body>
+<div class="container">
+    <h2>DatosContaminacion</h2>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Sector</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Mp10</th>
+            <th>Mp2.5</th>
+
+        </tr>
+        <tr th:each="registro: ${registros}">
+            <td th:text="${registro.getSector()}" />
+            <td th:text="${registro.getFecha()}" />
+            <td th:text="${registro.getHora()}" />
+            <td th:text="${registro.getMp10()}" />
+            <td th:text="${registro.getMp25()}" />
+        </tr>
+
+    </table>
+</div>
+
+</body>
+</html>
