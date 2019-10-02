@@ -6,61 +6,77 @@ import java.util.Date;
 
 public class Registro {
 
+	public Registro(){
+
+	}
 	private String sector;
-	private Date fecha;
-	private int mp10;
-	private int mp25;
-	private final String formato = "dd/MM/yy HH";
+
+	public Registro(String sector, int dispositivo, String fecha, String hora, double mp10, double mp25) {
+		this.sector = sector;
+		this.dispositivo = dispositivo;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.mp10 = mp10;
+		this.mp25 = mp25;
+	}
+
+	private int dispositivo;
+	private String fecha;
+	private String hora;
+	private double mp10;
+	private double mp25;
 
 	public String getSector() {
-		return this.sector;
+		return sector;
 	}
 
 	public void setSector(String sector) {
 		this.sector = sector;
 	}
 
-	public Date getFecha() {
+	public int getDispositivo() {
+		return dispositivo;
+	}
+
+	public void setDispositivo(int dispositivo) {
+		this.dispositivo = dispositivo;
+	}
+
+	public String getFecha() {
 		return fecha;
 	}
 
-	/**
-	 * Usando SimpleDateFormat transforma un string con el formato correcto a un clase date.
-	 * @param f - Fecha en el formato "dd/MM/yy HH"
-	 * @throws ParseException
-	 */
-	public void setFecha(String f) throws ParseException {
-		fecha = new SimpleDateFormat(formato).parse(f);
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
-	public int getMp10() {
-		return this.mp10;
+	public String getHora() {
+		return hora;
 	}
 
-	public void setMp10(int mp10) {
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	public double getMp10() {
+		return mp10;
+	}
+
+	public void setMp10(double mp10) {
 		this.mp10 = mp10;
 	}
 
-	public int getMp25() {
-		return this.mp25;
+	public double getMp25() {
+		return mp25;
 	}
 
-	public void setMp25(int mp25) {
+	public void setMp25(double mp25) {
 		this.mp25 = mp25;
 	}
 
-	/**
-	 * Constructor de un objeto registro.
-	 * @param s - String con el sector donde se tomo la muestra
-	 * @param f - String con la fecha y hora de cuando se tomo la muestra, tiene el formato "dd/MM/yy HH"
-	 * @param m1 - Entero con la cantidad de material particulado de 10x10^-6m.
-	 * @param m2 - Entero con la cantidad de material particulado de 2.5x10^-6m.
-	 */
-	public Registro(String s, String f, int m1, int m2) throws ParseException {
-		this.sector = s;
-		this.fecha = new SimpleDateFormat(formato).parse(f);
-		this.mp10 = m1;
-		this.mp25 = m2;
+	@Override
+	public String
+	toString() {
+		return "Registro: " + "sector= " + sector + ", dispositivo= " + dispositivo + ", fecha= " + fecha  + ", hora= " + hora +  ", mp10= " + mp10 + ", mp25= " + mp25 + "\n" ;
 	}
-
 }
