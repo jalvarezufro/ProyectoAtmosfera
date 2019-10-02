@@ -76,9 +76,14 @@ public class Registro {
         this.mp25 = mp25;
     }
 
-    public int[] contarValor(double limite, ArrayList<Registro> lista, String date, String mp) {
-        int asd = 0;
-        int[] contador = new int[25];
+    public String[][] contarValor(double limite, ArrayList<Registro> lista, String date, String mp) {
+        int[]temporal =new int[24];
+        String[][] contador = new String[24][2];
+        for (int i = 0; i < 24; i++) {
+            int next=i+1;
+            contador[i][0]=i+":00 - "+ next +":00";
+
+        }
         date = date.replace("/", "-");
         if (mp.equals("MP10")) {
 
@@ -90,7 +95,7 @@ public class Registro {
 
                         String[] temp = lista.get(i).getHora().split(":");
                         int horaTemp = Integer.parseInt(temp[0]);
-                        contador[horaTemp] = contador[horaTemp]+1;
+                        temporal[horaTemp] = temporal[horaTemp]+1;
 
                     }
                 }
@@ -101,10 +106,13 @@ public class Registro {
                     if (lista.get(i).getMp25() > limite) {
                         String[] temp = lista.get(i).hora.split(":");
                         int horaTemp = Integer.parseInt(temp[0]);
-                        contador[horaTemp] = contador[horaTemp]+1;
+                        temporal[horaTemp] = temporal[horaTemp]+1;
                     }
                 }
             }
+        }
+        for(int i=0;i<24;i++){
+            contador[i][1]= String.valueOf(temporal[i]);
         }
         return contador;
     }
