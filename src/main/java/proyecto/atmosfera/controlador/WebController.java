@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @RequestMapping()
 public class WebController {
 
-    @RequestMapping("")
+    /*@RequestMapping("")
     public String index(Model model) {
         ManejoDato md = new ManejoDato();
         ManejoRegistro rController = new ManejoRegistro();
@@ -23,6 +23,7 @@ public class WebController {
         model.addAttribute("array", arraymirar);
         return "index";
     }
+    */
 
     @RequestMapping("/tabla")
     public String tabla(Model model) {
@@ -31,6 +32,11 @@ public class WebController {
         ArrayList<Registro> ListaRegistros = rController.registrosPorHora(md.leerArchivo("ProyectoAtmosfera.csv"));
         model.addAttribute("registros", ListaRegistros);
         return "tablaRegistros";
+    }
+
+    @RequestMapping("")
+    public String index(Model model){
+        return "PaginaBootstrap";
     }
 
 

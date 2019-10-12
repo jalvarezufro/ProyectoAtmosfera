@@ -13,8 +13,6 @@ import java.util.ArrayList;
 public class ProyectoAtmosferaApplication {
 
     public static void main(String[] args) {
-      SpringApplication.run(ProyectoAtmosferaApplication.class, args);
-
-
-
-}}
+        SpringApplication.run(ProyectoAtmosferaApplication.class, args);
+    }
+}
