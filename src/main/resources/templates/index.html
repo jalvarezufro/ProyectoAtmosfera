@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css"/>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+
     <header>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </header>
@@ -175,8 +177,13 @@
     </style>
 
 
+
+
+
 </head>
 <body>
+
+
 
 <div id="containerSuperior">
 
@@ -224,6 +231,7 @@
                 <th style="color: white">Franja Horaria</th>
                 <th style="color: white">Veces superadas</th>
 
+
             </tr>
             <tr th:each="array: ${array}">
                 <td style="color: white" th:text="${array[0]}"/>
@@ -231,12 +239,18 @@
 
             </tr>
 
-            <!-- intento de hacer la cosa
+            <!--/*@thymesVar id="contarValor" type
             <tr th:each="array: ${registros}">
-                <td th:text="${array.contarValor(100,array,'30/04/2019','MP10')[0]}"/>
-                <td th:text="${array.contarValor(100,array,'30/04/2019','MP10')[1]}"/>
 
-            </tr> -->
+                <td th:each="ola: ${array.contarValor(100,array,'30/04/2019','MP10')}"/>
+                <td th:text=""></td>
+                <td th:text="ola[1]"></td>
+
+=""*/-->
+
+
+
+            </tr>
 
 
         </table>
