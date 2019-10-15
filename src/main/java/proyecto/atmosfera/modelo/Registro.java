@@ -8,8 +8,6 @@ public class Registro {
 
     }
 
-    private String sector;
-
     public Registro(String sector, int dispositivo, String fecha, String hora, double mp10, double mp25) {
         this.sector = sector;
         this.dispositivo = dispositivo;
@@ -19,6 +17,7 @@ public class Registro {
         this.mp25 = mp25;
     }
 
+    private String sector;
     private int dispositivo;
     private String fecha;
     private String hora;

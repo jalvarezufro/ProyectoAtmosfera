@@ -228,15 +228,14 @@
 
         <table class="table table-striped">
             <tr>
-                <th>Franja Horaria</th>
-                <th>Veces superadas</th>
-
+                <th style="color: white">Franja Horaria</th>
+                <th style="color: white">Veces superadas</th>
 
 
             </tr>
             <tr th:each="array: ${array}">
-                <td th:text="${array[0]}"/>
-                <td th:text="${array[1]}"/>
+                <td style="color: white" th:text="${array[0]}"/>
+                <td style="color: white" th:text="${array[1]}"/>
 
             </tr>
 
@@ -280,7 +279,9 @@
             </div>
 
             <div>
-                <div style="text-align: center;"><button name="button" onclick="location.href='/tabla';">Mostrar registros</button></div>
+                <div style="text-align: center;">
+                    <button name="button" onclick="location.href='/tabla';">Mostrar registros</button>
+                </div>
             </div>
         </div>
     </div>
