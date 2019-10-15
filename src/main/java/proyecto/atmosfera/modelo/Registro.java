@@ -1,9 +1,6 @@
 package proyecto.atmosfera.modelo;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Registro {
 
@@ -76,7 +73,18 @@ public class Registro {
         this.mp25 = mp25;
     }
 
-    public String[][] contarValor(double limite, ArrayList<Registro> lista, String date, String mp) {
+    public int[] getIntSuperados(String[][] a){
+        int[] temp = new int[24];
+        for (int i = 0; i < 24; i++) {
+            temp[i]= Integer.parseInt(a[i][1]);
+
+        }
+        return temp;
+    }
+
+    public String[][] contarValor(String limiteS, ArrayList<Registro> lista, String date, String mp) {
+
+        int limite = Integer.parseInt(limiteS);
         int[]temporal =new int[24];
         String[][] contador = new String[24][2];
         for (int i = 0; i < 24; i++) {

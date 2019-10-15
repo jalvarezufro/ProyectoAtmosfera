@@ -1,0 +1,140 @@
+<head>
+    <link rel="stylesheet" href="indexChart.css">
+    <style>
+        .bar-chart {
+            background-color: #C7D9D9;
+        }
+
+        /* Split the screen in half */
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        /* Control the left side */
+        .left {
+            left: 0;
+
+        }
+
+        /* Control the right side */
+        .right {
+            right: 0;
+
+        }
+
+        /* If you want the content centered horizontally and vertically */
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* Style the image inside the centered container, if needed */
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="split right">
+    <div class="centered">
+        <svg class="bar-chart"></svg>
+
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script>
+            var dataset = [];
+
+            var svgWidth = 500, svgHeight = 300, barPadding = 5;
+            var barWidth = (svgWidth / dataset.length);
+
+
+            var svg = d3.select('svg')
+                .attr("width", svgWidth)
+                .attr("height", svgHeight);
+
+
+
+            var barChart = svg.selectAll("rect")
+                .data(dataset)
+                .enter()
+                .append("rect")
+                .attr("y", function(d) {
+                    return svgHeight - d
+                })
+                .attr("height", function(d) {
+                    return d;
+                })
+                .attr("width", barWidth - barPadding)
+                .attr("transform", function (d, i) {
+                    var translate = [barWidth * i, 0];
+                    return "translate("+ translate +")";
+
+                });
+            var text = svg.selectAll("text")
+                .data(dataset)
+                .enter()
+                .append("text")
+                .text(function(d) {
+                    return d;
+                })
+                .attr("y", function(d, i) {
+                    return svgHeight - d - 2;
+                })
+                .attr("x", function(d, i) {
+                    return barWidth * i;
+                })
+                .attr("fill", "#A64C38");
+
+            var xScale = d3.scaleLinear()
+                .domain([0, d3.max(data)])
+                .range([0, svgWidth]);
+
+            var yScale = d3.scaleLinear()
+                .domain([0, d3.max(data)])
+                .range([svgHeight, 0]);
+
+            var x_axis = d3.axisBottom()
+                .scale(xScale);
+
+            var y_axis = d3.axisLeft()
+                .scale(yScale);
+
+            svg.append("g")
+                .attr("transform", "translate(500, 500)")
+                .call(y_axis);
+
+            var xAxisTranslate = svgHeight - 20;
+
+            svg.append("g")
+                .attr("transform", "translate(50, " + xAxisTranslate  +")")
+                .call(x_axis);
+
+
+        </script>
+
+    </div>
+</div>
+
+<div class="split left">
+    <div class="centered">
+        <form action="/chartIndex2">
+            limite : <input type="tex" name="limite" th:value="${limite}" maxlength="15" size="7"> formato = Un numero entero
+            <br>
+            dia: <input type="text" name="dia" th:value="${dia}" maxlength="15" size="7"> formato=dd/mm/aa o dd-mm-aa
+            <br>
+
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+</div>
+</body>
