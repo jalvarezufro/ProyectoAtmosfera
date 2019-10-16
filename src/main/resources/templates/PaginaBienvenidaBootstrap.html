@@ -11,6 +11,11 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="CSS/main.css">
     <style>
+        body {
+            font-family: 'Titillium Web', sans-serif;
+            background-color: #25bcb2;
+
+        }
         .navbar{
             margin: 0%;
             padding: 0;
@@ -124,7 +129,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="Cabezera" style="margin-top: 3%;margin-left: 13%;font-family: 'Verdana';font-style: normal">
-                        <h1>Contaminación Araucanía</h1>
+                        <h1>PROYECTO ATMÓSFERA</h1>
                     </div>
                 </div>
             </div>
@@ -143,21 +148,19 @@
                 </button>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="PaginaGraficoBootstrap.html">HeatMap</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#abajo">¿Quiénes somos?</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<section id="EspecificacionesProyecto">
+<section id="Temática">
     <div class="container-fluid">
         <img src="https://i.ibb.co/YkR86cr/header.jpg" class="card-img-top" style="position: absolute" height="100%">
         <div class="row">
-            <div class="col-md-8" style="padding: 0px">
-                <div class="imagenContaminacion">
-                    <img src="https://i.ibb.co/CPwv2Nx/foto1.jpg" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
             <div class="col-md-4">
                 <div class="contenedor-right mt-5 ml-2">
                     <h2>Temática</h2>
@@ -174,6 +177,11 @@
                         de un heatmap (mapa de calor). </p>
                 </div>
             </div>
+            <div class="col-md-8" style="padding: 0px">
+                <div class="imagenContaminacion">
+                    <img src="https://i.ibb.co/CPwv2Nx/foto1.jpg" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -182,6 +190,11 @@
     <div class="container-fluid">
         <img src="https://i.ibb.co/YkR86cr/header.jpg" class="card-img-top" style="position: absolute" height="100%">
         <div class="row">
+            <div class="col-md-8">
+                <div class="imagenGrafico">
+                    <img src="https://i.ibb.co/d5PJGcn/Heatmap.png" class="img-fluid" style="width: 100%">
+                </div>
+            </div>
             <div class="col-md-4" style="padding: 2%">
                 <div class="texto">
                     <h2>Herramienta gráfica (Mock-up)</h2>
@@ -193,12 +206,7 @@
                         error laboriosam alias? Placeat, omnis.</p>
                 </div>
                 <div class="button" align="center" style="margin-top: 7%">
-                    <button type="button" class="btn btn-primary btn-lg btn-light" style="background-color: white">Ir al Heatmap</button>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="imagenGrafico">
-                    <img src="https://i.ibb.co/d5PJGcn/Heatmap.png" class="img-fluid" style="width: 100%">
+                    <button type="button" onclick="location.href='PaginaGraficoBootstrap.html'" class="btn btn-primary btn-lg btn-light" style="background-color: white">Ir al Heatmap</button>
                 </div>
             </div>
         </div>
@@ -223,8 +231,8 @@
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+                                                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                                                 crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
