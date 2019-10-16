@@ -36,7 +36,7 @@ public class WebController {
 
     @RequestMapping("")
     public String index(Model model){
-        return "PaginaBootstrap";
+        return "PaginaBienvenidaBootstrap";
     }
 
 
