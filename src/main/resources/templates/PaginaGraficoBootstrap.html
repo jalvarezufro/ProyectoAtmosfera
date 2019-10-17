@@ -41,7 +41,7 @@
         }
 
         .select-css {
-            display: block;
+            display: inline-block;
             font-size: 16px;
             font-family: 'Titillium Web', sans-serif;
             font-weight: 400;
@@ -152,6 +152,42 @@
 
 <div class="card border-0" style="height: 750px">
     <img src="img/fondo.png" class="card-img-top" style="position: absolute" height="auto">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <form action="PaginaGraficoBootstrap.html">
+                <select class="select-css"  name="Sector" style="width:170px;margin-top: 4%;margin-bottom: 4%">
+                    <option value="" selected disabled hidden>Seleccione sector</option>
+                    <option>Todos los sectores</option>
+                    <option>Amanecer</option>
+                    <option>Centro</option>
+                    <option>Pedro de Valdivia</option>
+                    <option>Universidad</option>
+                    <option>Sta. Rosa</option>
+                    <option>Poniente</option>
+                    <option>Labranza</option>
+                    <option>Fundo el carmen</option>
+                    <option>Pueblo Nuevo</option>
+                </select>
+                    <br>
+                    Fecha de inicio : &nbsp; &nbsp; <input type="tex" name="fechaInicio" th:value="${fechaInicio}" maxlength="15" size="7" style="margin-left: 5px"> formato = dd/mm/aa o dd-mm-aa
+                    <br>
+                    Fecha de término : <input type="tex" name="fechaTermino" th:value="${fechaTermino}" maxlength="15" size="7"> formato = dd/mm/aa o dd-mm-aa
+                    <button style="width: 100px;height: 50px;margin-top: 3%;margin-left: 25%">
+                        <input type="submit" value="Buscar">
+                    </button>
+
+                </form>
+            </div>
+            <div class="col-4">
+                <img src="img/nivelContaminacion.png" class="card-img-top" style="position: absolute;margin-left: 40%;margin-top: 55%" height="496">
+            </div>
+
+            <div class="col-8">
+                <img src="img/Heatmap.png" class="card-img-top" style="position: absolute;margin-left: 5%;margin-top: 6%;margin-right: 10%" height="450" width="1206">
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -10,6 +10,15 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="CSS/main.css">
+    <!-- Fontawesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <style>
         body {
             font-family: 'Titillium Web', sans-serif;
@@ -112,6 +121,23 @@
             height: 200px;
             padding: 2%
         }
+        .container--head {
+            background: #25bcb2;
+        }
+
+        .tooltip-carousel {
+            position: absolute;
+            z-index: 11;
+            border-radius: 50%;
+        }
+
+        .caraousel-tooltip-item {
+            display: none;
+        }
+
+        .caraousel-tooltip-item.active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -128,8 +154,8 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="Cabezera" style="margin-top: 3%;margin-left: 13%;font-family: 'Verdana';font-style: normal">
-                        <h1>PROYECTO ATMÓSFERA</h1>
+                    <div class="Cabezera" style="margin-top: 3%;font-family: 'icon-brand';font-style: normal;color: #102340">
+                        <h1 style="font-size: 70px">PROYECTO ATMÓSFERA</h1>
                     </div>
                 </div>
             </div>
@@ -158,37 +184,61 @@
 </nav>
 
 <section id="Temática">
-    <div class="container-fluid">
-        <img src="https://i.ibb.co/YkR86cr/header.jpg" class="card-img-top" style="position: absolute" height="100%">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="contenedor-right mt-5 ml-2">
-                    <h2>Temática</h2>
-                    <p>Contaminación del aire en Temuco, mediante la
+
+    <div class="container--head">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://i.ibb.co/CPwv2Nx/foto1.jpg" alt="..." style="width:1550px;height: 550px">
+                    <div class="carousel-caption"  style="margin-bottom: 5%">
+                        <h3 style="font-size: 50px;color: white">Temática</h3>
+                        <p style="font-size: 35px;color: white">Contaminación del aire en Temuco, mediante la
                         utilización de datos provistos por el proyecto
-                        Smart City in a box, CEIS UFRO.</p>
-                    <br><p>------------------------------------------------------------------</p></p><br>
-                    <h2>Pregunta a resolver</h2>
-                    <p>¿Existe una (o más) franja(s) horaria donde el valor de
-                        la concentración de contaminación supere un valor determinado?</p>
-                    <br><p>------------------------------------------------------------------</p><br>
-                    <h2>Propuesta</h2>
-                    <p>La idea es ofrecer una visualización de los datos obtenidos a través
-                        de un heatmap (mapa de calor). </p>
+                            Smart City in a box, CEIS UFRO.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/foto4.jpg" alt="..." style="width:1550px;height: 550px">
+                    <div class="carousel-caption" style="margin-bottom: 5%">
+                        <h3 style="font-size: 50px;color: white">Pregunta a resolver</h3>
+                        <p style="font-size: 35px;color: white">¿Existe una (o más) franja(s) horaria donde el valor de
+                            la concentración de contaminación supere un valor determinado?</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/foto5.jpg" alt="..." style="width:1550px;height: 550px">
+                    <div class="carousel-caption" style="margin-bottom: 9%">
+                        <h3 style="font-size: 50px;color: white">Propuesta</h3>
+                        <p style="font-size: 35px;color: white">La idea es ofrecer una visualización de los datos obtenidos a través
+                            de un heatmap (mapa de calor).</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8" style="padding: 0px">
-                <div class="imagenContaminacion">
-                    <img src="https://i.ibb.co/CPwv2Nx/foto1.jpg" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
         </div>
     </div>
+
 </section>
 
 <section id="HerramientaGrafica">
     <div class="container-fluid">
-        <img src="https://i.ibb.co/YkR86cr/header.jpg" class="card-img-top" style="position: absolute" height="100%">
+        <img src="https://i.ibb.co/YkR86cr/header.jpg" class="img-fluid" style="position: absolute" height="100%">
         <div class="row">
             <div class="col-md-8">
                 <div class="imagenGrafico">
@@ -198,15 +248,16 @@
             <div class="col-md-4" style="padding: 2%">
                 <div class="texto">
                     <h2>Herramienta gráfica (Mock-up)</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque unde non itaque, architecto
-                        eum explicabo eveniet dignissimos incidunt eius corrupti repellat sint. Quam omnis doloribus
-                        error laboriosam alias? Placeat, omnis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque unde non itaque, architecto
-                        eum explicabo eveniet dignissimos incidunt eius corrupti repellat sint. Quam omnis doloribus
-                        error laboriosam alias? Placeat, omnis.</p>
+                    <p style="font-size: 20px">Un mapa de calor (heatmap) es una representación gráfica de datos
+                        donde los valores individuales contenidos en una matriz
+                        se representan como colores. "Mapa de calor" es un término
+                        más nuevo, pero las matrices de sombreado han existido durante
+                        más de un siglo. En nuestro caso, lo utilizaremos para representar
+                        los niveles de contaminación para cada franja horaria
+                        dentro de la ciudad de Temuco.</p>
                 </div>
                 <div class="button" align="center" style="margin-top: 7%">
-                    <button type="button" onclick="location.href='PaginaGraficoBootstrap.html'" class="btn btn-primary btn-lg btn-light" style="background-color: white">Ir al Heatmap</button>
+                    <button type="button" onclick="location.href='PaginaGraficoBootstrap.html'" class="btn btn-primary btn-lg btn-light" style="background-color: white;background-color: black">Ir al Heatmap</button>
                 </div>
             </div>
         </div>
@@ -214,11 +265,11 @@
 </section>
 
 <footer id="footer">
-    <div class="card border-light">
+    <div class="card border-light" style="margin-right: 0%;margin-left: 1%">
         <img src="https://i.ibb.co/YkR86cr/header.jpg" class="card-img-top" style="position: absolute" height="100%">
     <div class="container-fluid">
         <div class="col-md-9" style="padding: 3%;margin-left: 10%;" align="center">
-            <ul style="list-style: none;">
+            <ul style="list-style: none;font-size: 20px">
                 <a name="abajo"></a>
                 <li>¿Quienes Somos?</li>
                 <li>Diego Lagos - Cristobal Contreras - Javier Álvarez</li>
@@ -239,6 +290,31 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script>
+    $(function() {
+        $('.tooltip-carousel').popover();
+
+        $('#carousel-example-generic').on('slide.bs.carousel', function() {
+            $('.tooltip-carousel').popover('hide');
+            $(this).find('.caraousel-tooltip-item.active').fadeOut(function() {
+                $(this).removeClass('active');
+            });
+        });
+
+        $('#carousel-example-generic').on('slid.bs.carousel', function() {
+            var index = $(this).find('.carousel-inner > .item.active').index();
+            $(this).find('.caraousel-tooltip-item').eq(index).fadeIn(function() {
+                $(this).addClass('active');
+            });
+        });
+
+        $('.tooltip-carousel').mouseenter(function() {
+            $(this).popover('show');
+        }).mouseleave(function() {
+            $(this).popover('hide');
+        });
+    });
+</script>
 </body>
 
 </html>
