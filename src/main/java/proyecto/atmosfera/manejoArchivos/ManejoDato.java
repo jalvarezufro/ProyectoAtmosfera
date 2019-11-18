@@ -5,7 +5,7 @@ import proyecto.atmosfera.modelo.Registro;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class ManejoDato {
@@ -25,22 +25,14 @@ public class ManejoDato {
             }
             buffer.close();
             fileReader.close();
-        } catch (IOException e) {
-            System.out.println("Archivo no encontrado.");
+        } catch (Exception e) {
+            System.err.println(e);
         }
         return registros;
     }
 
-    private Registro crearRegistro(String linea) {
-        String datos[] = arreglarLinea(linea).split(";");
-        return new Registro(datos[0], Integer.parseInt(datos[1].trim()), datos[2], datos[3], Double.parseDouble(datos[4]), Double.parseDouble(datos[5]));
+    private Registro crearRegistro(String linea) throws ParseException {
+        String datos[] = linea.split(";");
+        return new Registro(datos[0],datos[1],datos[2],Double.parseDouble(datos[3]),Double.parseDouble(datos[4]));
     }
-
-    private String arreglarLinea(String linea) {
-        while (linea.contains(";;")) {
-            linea = linea.replaceAll("(;;)", ";0.0;");
-        }
-        return linea;
-    }
-
 }

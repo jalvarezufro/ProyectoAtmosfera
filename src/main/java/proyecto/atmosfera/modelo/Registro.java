@@ -1,28 +1,22 @@
 package proyecto.atmosfera.modelo;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Registro {
 
-    public Registro() {
+    private String sector;
+    private Date fecha;
+    private double mp10;
+    private double mp25;
 
-    }
-
-    public Registro(String sector, int dispositivo, String fecha, String hora, double mp10, double mp25) {
+    public Registro(String sector, String fecha, String hora, double mp10, double mp25) throws ParseException {
+        this.fecha = new SimpleDateFormat("dd/MM/yyyy HH").parse(fecha+" "+hora);
         this.sector = sector;
-        this.dispositivo = dispositivo;
-        this.fecha = fecha;
-        this.hora = hora;
         this.mp10 = mp10;
         this.mp25 = mp25;
     }
-
-    private String sector;
-    private int dispositivo;
-    private String fecha;
-    private String hora;
-    private double mp10;
-    private double mp25;
 
     public String getSector() {
         return sector;
@@ -32,28 +26,16 @@ public class Registro {
         this.sector = sector;
     }
 
-    public int getDispositivo() {
-        return dispositivo;
-    }
-
-    public void setDispositivo(int dispositivo) {
-        this.dispositivo = dispositivo;
-    }
-
     public String getFecha() {
-        return fecha;
+        return new SimpleDateFormat("dd/mm/yyyy").format(this.fecha);
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
+    public String getHora(){
+        return new SimpleDateFormat("hh").format(this.fecha);
     }
 
     public double getMp10() {
@@ -72,61 +54,9 @@ public class Registro {
         this.mp25 = mp25;
     }
 
-    public int[] getIntSuperados(String[][] a){
-        int[] temp = new int[24];
-        for (int i = 0; i < 24; i++) {
-            temp[i]= Integer.parseInt(a[i][1]);
-
-        }
-        return temp;
-    }
-
-    public String[][] contarValor(String limiteS, ArrayList<Registro> lista, String date, String mp) {
-
-        int limite = Integer.parseInt(limiteS);
-        int[]temporal =new int[24];
-        String[][] contador = new String[24][2];
-        for (int i = 0; i < 24; i++) {
-            int next=i+1;
-            contador[i][0]=i+":00 - "+ next +":00";
-
-        }
-        date = date.replace("/", "-");
-        if (mp.equals("MP10")) {
-
-            for (int i = 0; i < lista.size(); i++) {
-
-                if (date.equals(lista.get(i).getFecha())) {
-
-                    if (lista.get(i).getMp10() > limite) {
-
-                        String[] temp = lista.get(i).getHora().split(":");
-                        int horaTemp = Integer.parseInt(temp[0]);
-                        temporal[horaTemp] = temporal[horaTemp]+1;
-
-                    }
-                }
-            }
-        } else {
-            for (int i = 0; i < lista.size(); i++) {
-                if (date.equals(lista.get(i).fecha)) {
-                    if (lista.get(i).getMp25() > limite) {
-                        String[] temp = lista.get(i).hora.split(":");
-                        int horaTemp = Integer.parseInt(temp[0]);
-                        temporal[horaTemp] = temporal[horaTemp]+1;
-                    }
-                }
-            }
-        }
-        for(int i=0;i<24;i++){
-            contador[i][1]= String.valueOf(temporal[i]);
-        }
-        return contador;
-    }
-
     @Override
-    public String
-    toString() {
-        return "Registro: " + "sector= " + sector + ", dispositivo= " + dispositivo + ", fecha= " + fecha + ", hora= " + hora + ", mp10= " + mp10 + ", mp25= " + mp25 + "\n";
+    public String toString() {
+        SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
+        return "Sector = "+this.sector+", Fecha = "+df.format(this.fecha)+", mp10= "+this.mp10 +", mp2.5= "+mp25+"\n";
     }
 }
