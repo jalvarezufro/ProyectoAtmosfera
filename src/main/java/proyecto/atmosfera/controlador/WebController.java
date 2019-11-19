@@ -34,12 +34,13 @@ public class WebController {
         return "tablaRegistros";
     }
 
-    @RequestMapping("")
+    @RequestMapping("/home")
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
 
-
-
-
+    @RequestMapping("/PaginaGraficoBootstrap")
+    public String PaginaGraficoBootstrap(Model model){
+        return "PaginaGraficoBootstrap";
+    }
 }
