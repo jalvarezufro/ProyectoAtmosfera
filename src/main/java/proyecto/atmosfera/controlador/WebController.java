@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import proyecto.atmosfera.manejoArchivos.ManejoDato;
-import proyecto.atmosfera.manejoArchivos.ManejoRegistro;
 import proyecto.atmosfera.modelo.Registro;
 
 import java.util.ArrayList;
@@ -27,9 +26,7 @@ public class WebController {
 
     @RequestMapping("/tabla")
     public String tabla(Model model) {
-        ManejoDato md = new ManejoDato();
-        ManejoRegistro rController = new ManejoRegistro();
-        ArrayList<Registro> ListaRegistros = rController.registrosPorHora(md.leerArchivo("ProyectoAtmosfera.csv"));
+        ArrayList<Registro> ListaRegistros = new ManejoDato().leerArchivo("src\\main\\resources\\Historial_SmartCity_2019.csv");
         model.addAttribute("registros", ListaRegistros);
         return "tablaRegistros";
     }
