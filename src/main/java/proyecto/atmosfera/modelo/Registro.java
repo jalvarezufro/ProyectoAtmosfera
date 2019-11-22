@@ -27,7 +27,7 @@ public class Registro {
     }
 
     public String getFecha() {
-        return new SimpleDateFormat("dd/mm/yyyy").format(this.fecha);
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.fecha);
     }
 
     public void setFecha(Date fecha) {
@@ -35,7 +35,7 @@ public class Registro {
     }
 
     public String getHora(){
-        return new SimpleDateFormat("hh").format(this.fecha);
+        return new SimpleDateFormat("HH").format(this.fecha);
     }
 
     public double getMp10() {

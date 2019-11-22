@@ -37,7 +37,7 @@
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var myGroups = d3.map(data, function (d) { return d.fecha; }).keys()
-    var myVars = d3.map(data, function (d) { return d.hora; }).keys()
+    var myVars = d3.map(data, function (d) { return d.hora + ":00"; }).keys()
 
     // Build X scales and axis:
     var x = d3.scaleBand()
@@ -86,7 +86,7 @@
     }
     var mousemove = function (d) {
         tooltip
-            .html("El valor exacto de MP10 es: " + d.mp10 + "<br>Sector: " + d.sector + "<br>Dispositivo: " + d.dispositivo)
+            .html("El valor exacto de MP10 es: " + d.mp10 + "<br>Sector: " + d.sector)
             .style("left", (d3.mouse(this)[0] + 70) + "px")
             .style("top", (d3.mouse(this)[1]) + "px")
     }
