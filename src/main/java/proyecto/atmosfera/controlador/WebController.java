@@ -31,12 +31,23 @@ public class WebController {
         return "tablaRegistros";
     }
 
-    @RequestMapping("")
+    @RequestMapping("/home")
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
 
+    @RequestMapping("/PaginaGraficoBootstrap")
+    public String PaginaGraficoBootstrap(Model model){
+        return "PaginaGraficoBootstrap";
+    }
 
-
-
+    @RequestMapping("/Heatmap")
+    public String heatmap(Model model){
+        ArrayList<Registro> registros = new ArrayList<>();
+        registros.add(new Registro("amanecer",1,"20-11-19","00:00",35.0,56.0));
+        registros.add(new Registro("amanecer",1,"21-11-19","01:00",54.0,23.0));
+        registros.add(new Registro("amanecer",1,"22-11-19","02:00",78.0,14.0));
+        model.addAttribute("datosRegistros",registros);
+        return "HeatMap";
+    }
 }
