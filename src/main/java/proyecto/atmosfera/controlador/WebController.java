@@ -45,15 +45,15 @@ public class WebController {
     @RequestMapping("/Heatmap")
     public String heatmap(Model model) throws ParseException {
         ArrayList<Registro> registros = new ArrayList<>();
-        registros.add(new Registro("amanecer","20/11/19","00",35.0,56.0));
-        registros.add(new Registro("amanecer","20/11/19","01",24.0,26.0));
-        registros.add(new Registro("amanecer","20/11/19","02",76.0,12.0));
-        registros.add(new Registro("amanecer","21/11/19","00",98.0,23.0));
-        registros.add(new Registro("amanecer","21/11/19","01",54.0,25.0));
-        registros.add(new Registro("amanecer","21/11/19","02",13.0,23.0));
-        registros.add(new Registro("amanecer","22/11/19","00",78.0,14.0));
-        registros.add(new Registro("amanecer","22/11/19","01",67.0,26.0));
-        registros.add(new Registro("amanecer","22/11/19","02",49.0,43.0));
+        registros.add(new Registro("amanecer",1,"20/11/19","00",35.0,56.0));
+        registros.add(new Registro("amanecer",1,"20/11/19","01",24.0,26.0));
+        registros.add(new Registro("amanecer",1,"20/11/19","02",76.0,12.0));
+        registros.add(new Registro("amanecer",1,"21/11/19","00",98.0,23.0));
+        registros.add(new Registro("amanecer",1,"21/11/19","01",54.0,25.0));
+        registros.add(new Registro("amanecer",1,"21/11/19","02",13.0,23.0));
+        registros.add(new Registro("amanecer",1,"22/11/19","00",78.0,14.0));
+        registros.add(new Registro("amanecer",1,"22/11/19","01",67.0,26.0));
+        registros.add(new Registro("amanecer",1,"22/11/19","02",49.0,43.0));
         model.addAttribute("datosRegistros",registros);
         return "HeatMap";
     }

@@ -31,8 +31,15 @@ public class ManejoDato {
         return registros;
     }
 
+    /*
     private Registro crearRegistro(String linea) throws ParseException {
         String datos[] = linea.split(";");
         return new Registro(datos[0],datos[1],datos[2],Double.parseDouble(datos[3]),Double.parseDouble(datos[4]));
+    }
+     */
+
+    private Registro crearRegistro(String linea) throws ParseException {
+        String datos[] = linea.split(";");
+        return new Registro(datos[0],Integer.parseInt(datos[1]),datos[2],datos[3],Double.parseDouble(datos[4]),Double.parseDouble(datos[5]));
     }
 }
