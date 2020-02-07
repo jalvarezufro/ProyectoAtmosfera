@@ -61,9 +61,9 @@
         .select(".domain").remove()
 
     // Build color scale
-    var myColor = d3.scaleSequential()
-        .interpolator(d3.interpolateInferno)
-        .domain([1, 100])
+    var myColor = d3.scaleLinear()
+        .domain([0,50,100,150,200])
+        .range(['green', 'yellow', 'orange', 'red', 'purple']);
 
     // create a tooltip
     var tooltip = d3.select("#my_dataviz")
