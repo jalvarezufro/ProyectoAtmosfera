@@ -10,17 +10,18 @@ import java.util.List;
 public class Registro {
 
     private String sector;
+    private int dispositivo;
     private String fecha;
     private Date tiempo;
     private String hora;
     private double mp10;
     private double mp25;
 
-    public Registro(String sector, String fecha, String hora, double mp10, double mp25) throws ParseException {
+    public Registro(String sector, int dispositivo,String fecha, String hora, double mp10, double mp25) throws ParseException {
         this.tiempo = new SimpleDateFormat("dd/MM/yyyy HH").parse(fecha+" "+hora);
         this.fecha = fecha;
         this.hora = hora;
-        this.sector = sector.substring(0,sector.length()-1); // Elimina el espacio al final.
+        this.sector = sector;     //sector.substring(0,sector.length()-1); Elimina el espacio al final.
         this.mp10 = mp10;
         this.mp25 = mp25;
     }
@@ -127,16 +128,17 @@ public class Registro {
         return temp;
     }
 
+    /*
     @Override
     public String toString() {
         SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
         return "Sector = "+this.sector+", Fecha = "+fecha+", hora:"+hora+", mp10= "+this.mp10 +", mp2.5= "+mp25+"\n";
     }
-/*
+    */
     @Override
     public String
     toString() {
         return "Registro: " + "sector= " + sector + ", dispositivo= " + dispositivo + ", fecha= " + fecha + ", hora= " + hora + ", mp10= " + mp10 + ", mp25= " + mp25 + "\n";
     }
- */
+
 }

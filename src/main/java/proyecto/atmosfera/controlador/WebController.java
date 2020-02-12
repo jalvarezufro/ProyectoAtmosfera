@@ -36,13 +36,13 @@ public class WebController {
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
-
+/*
     @RequestMapping("/PaginaGraficoBootstrap")
     public String PaginaGraficoBootstrap(Model model){
         return "PaginaGraficoBootstrap";
     }
-
-    @RequestMapping("/Heatmap")
+*/
+    @RequestMapping("/PaginaGraficoBootstrap")
     public String heatmap(Model model) throws ParseException {
         ArrayList<Registro> registros = new ArrayList<>();
         registros.add(new Registro("amanecer",1,"20/11/19","00:00",10.0,56.0));
@@ -55,6 +55,6 @@ public class WebController {
         registros.add(new Registro("amanecer",1,"22/11/19","01:00",138.0,26.0));
         registros.add(new Registro("amanecer",1,"22/11/19","02:00",214.0,43.0));
         model.addAttribute("datosRegistros",registros);
-        return "HeatMap";
+        return "PaginaGraficoBootstrap";
     }
 }
