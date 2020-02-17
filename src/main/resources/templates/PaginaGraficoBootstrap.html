@@ -16,7 +16,7 @@
     <!-- Load color palettes -->
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script th:inline="javascript">
-        var data = [[${ datosRegistros }]];
+        var data = [[${datosRegistros}]];
     </script>
 </head>
 <body>
@@ -59,10 +59,10 @@
     <img src="img/fondo.png" class="card-img-top" style="position: absolute" height="auto">
     <div class="container-fluid border">
         <div class="row" style="margin-top: 2%">
-            <div class="col-md-8">
-                <div style="margin-left: 25%">
+            <div class="col-md-6">
+                <div style="margin-left: 15%">
                 <form action="PaginaGraficoBootstrap.html">
-                <select class="select-css"  name="Sector" style="width:170px;margin-top: 4%;margin-bottom: 4%">
+                <select class="select-css"  name="Sector" style="width:170px;margin-top: 20%;margin-bottom: 4%">
                     <option value="" selected disabled hidden>Seleccione sector</option>
                     <option>Todos los sectores</option>
                     <option>Amanecer</option>
@@ -82,19 +82,19 @@
                 </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="button" style="margin-bottom: 15%;margin-top: 15%">
+            <div class="col-md-2">
+                <div class="button" style="margin-bottom: 15%;margin-top: 75%">
                     <a class="btn btn-primary btn-lg btn-blue" style="position: relative;background-color: #112953" href="#Grafico"
                        onclick=generarGrafico(data)>Generar Gráfico</a>
                 </div>
             </div>
-        </div>
-        <div class="row" style="margin-top: 5%">
-            <div class="col-md-8">
-                <div id="my_dataviz"></div>
-            </div>
             <div class="col-md-4">
-                <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static" width="20px" height="450px">
+                <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:300px; height:300px; margin-top: 15%; margin-left: 20%">
+            </div>
+        </div>
+        <div class="row" style="margin-top:2%">
+            <div class="col-md-12">
+                <div id="my_dataviz"></div>
             </div>
         </div>
     </div>
@@ -115,8 +115,8 @@
 
     // set the dimensions and margins of the graph
     var margin = { top: 80, right: 25, bottom: 30, left: 40 },
-        width = 450 - margin.left - margin.right,
-        height = 450 - margin.top - margin.bottom;
+        width = 1500 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
@@ -131,8 +131,8 @@
 
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
-    var myGroups = d3.map(data, function (d) { return d.fecha; }).keys()
-    var myVars = d3.map(data, function (d) { return d.hora; }).keys()
+    var myGroups = d3.map(data, function (d) { return d.hora; }).keys()
+    var myVars = d3.map(data, function (d) { return d.fecha; }).keys()
 
     // Build X scales and axis:
     var x = d3.scaleBand()
@@ -141,6 +141,7 @@
         .padding(0.05);
     svg.append("g")
         .style("font-size", 15)
+        .attr("stroke","white")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickSize(0))
         .select(".domain").remove()
@@ -151,7 +152,8 @@
         .domain(myVars)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 15)
+        .style("font-size", 10)
+        .attr("stroke","white")
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()
 
@@ -195,11 +197,11 @@
 
     // add the squares
     svg.selectAll()
-        .data(data, function (d) { return d.fecha + ':' + d.hora; })
+        .data(data, function (d) { return d.hora + ':' + d.fecha; })
         .enter()
         .append("rect")
-        .attr("x", function (d) { return x(d.fecha) })
-        .attr("y", function (d) { return y(d.hora) })
+        .attr("x", function (d) { return x(d.hora) })
+        .attr("y", function (d) { return y(d.fecha) })
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("width", x.bandwidth())
