@@ -9,15 +9,14 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/PaginaGraficoBootstrap.css">
 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- Load color palettes -->
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script th:inline="javascript">
-        var data = [[${datosRegistros}]];
-    </script>
+
 </head>
 <body>
 <header>
@@ -75,17 +74,15 @@
                     <option>Fundo el carmen</option>
                     <option>Pueblo Nuevo</option>
                 </select>
-                    <br>
-                    Fecha de inicio : &nbsp; &nbsp; <input type="tex" name="fechaInicio" th:value="${fechaInicio}" maxlength="15" size="7" style="margin-left: 5px"> formato = dd/mm/aa o dd-mm-aa
-                    <br>
-                    Fecha de término : <input type="tex" name="fechaTermino" th:value="${fechaTermino}" maxlength="15" size="7"> formato = dd/mm/aa o dd-mm-aa
+                    <h6>Seleccione la fecha de inicio:</h6>
+                    <input type="text" id="fechaInicio" width="276">
                 </form>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="button" style="margin-bottom: 15%;margin-top: 75%">
                     <a class="btn btn-primary btn-lg btn-blue" style="position: relative;background-color: #112953" href="#Grafico"
-                       onclick=generarGrafico(data)>Generar Gráfico</a>
+                       onclick="hacerPeticion()">Generar Gráfico</a>
                 </div>
             </div>
             <div class="col-md-4">
@@ -109,6 +106,22 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+<script>
+    function hacerPeticion() {
+      document.getElementById("my_dataviz").innerHTML = '';
+      var xhttp = new XMLHttpRequest();
+      var fecha = document.getElementById("fechaInicio").value;
+      xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
+      xhttp.send();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var datos = JSON.parse(xhttp.response);
+          generarGrafico(datos);
+        }
+      }
+    }
+    </script>
 
 <script>
     function generarGrafico(data) {

@@ -3,6 +3,8 @@ package proyecto.atmosfera.controlador;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import proyecto.atmosfera.manejoArchivos.ManejoDato;
 import proyecto.atmosfera.modelo.Registro;
 
@@ -38,17 +40,21 @@ public class WebController {
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
-/*
-    @RequestMapping("/PaginaGraficoBootstrap")
-    public String PaginaGraficoBootstrap(Model model){
-        return "PaginaGraficoBootstrap";
+
+    @RequestMapping(value= "/obtenerFechaInicio", method = RequestMethod.GET)
+    public ArrayList<Registro> enviarDatos(@RequestParam(name = "fechaInicio", required = true) String fecha){
+        ManejoDato manejoDato = new ManejoDato();
+        ControlRegistro controlRegistro = new ControlRegistro();
+        ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
+        ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
+        return datosFinales;
     }
-*/
+
     @RequestMapping("/PaginaGraficoBootstrap")
-    public String heatmap(Model model) throws ParseException {
-        ArrayList<Registro> registros = new ArrayList<>();
-        registros.add(new Registro("amanecer", "20/11/19","00:00",10.0,56.0));
+    public String heatmap() throws ParseException {
+        //ArrayList<Registro> registros = new ArrayList<>();
         /*
+        registros.add(new Registro("amanecer", "20/11/19","00:00",10.0,56.0));
         registros.add(new Registro("amanecer",1,"20/11/19","01:00",24.0,26.0));
         registros.add(new Registro("amanecer",1,"20/11/19","02:00",76.0,12.0));
         registros.add(new Registro("amanecer",1,"20/11/19","03:00",76.0,12.0));
@@ -223,7 +229,7 @@ public class WebController {
         registros.add(new Registro("amanecer",1,"26/11/19","22:00",76.0,12.0));
         registros.add(new Registro("amanecer",1,"26/11/19","23:00",76.0,12.0));
         */
-        model.addAttribute("datosRegistros",registros);
+        //model.addAttribute("datosRegistros",registros);
         return "PaginaGraficoBootstrap";
     }
 }

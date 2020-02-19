@@ -42,6 +42,6 @@ public class ManejoDato {
 
     private Registro crearRegistro(String linea) throws ParseException {
         String datos[] = linea.split(",");
-        return new Registro(datos[0], datos[1],datos[2],Double.parseDouble(datos[3]),Double.parseDouble(datos[4]));
+        return new Registro(datos[0], LocalDate.parse(datos[1],DateTimeFormatter.ofPattern("dd/MM/yyyy")),datos[2],Double.parseDouble(datos[3]),Double.parseDouble(datos[4]));
     }
 }
