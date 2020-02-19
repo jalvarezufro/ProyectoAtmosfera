@@ -7,6 +7,8 @@ import proyecto.atmosfera.manejoArchivos.ManejoDato;
 import proyecto.atmosfera.modelo.Registro;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @Controller
@@ -45,7 +47,8 @@ public class WebController {
     @RequestMapping("/PaginaGraficoBootstrap")
     public String heatmap(Model model) throws ParseException {
         ArrayList<Registro> registros = new ArrayList<>();
-        registros.add(new Registro("amanecer",1,"20/11/19","00:00",10.0,56.0));
+        registros.add(new Registro("amanecer", "20/11/19","00:00",10.0,56.0));
+        /*
         registros.add(new Registro("amanecer",1,"20/11/19","01:00",24.0,26.0));
         registros.add(new Registro("amanecer",1,"20/11/19","02:00",76.0,12.0));
         registros.add(new Registro("amanecer",1,"20/11/19","03:00",76.0,12.0));
@@ -219,6 +222,7 @@ public class WebController {
         registros.add(new Registro("amanecer",1,"26/11/19","21:00",76.0,12.0));
         registros.add(new Registro("amanecer",1,"26/11/19","22:00",76.0,12.0));
         registros.add(new Registro("amanecer",1,"26/11/19","23:00",76.0,12.0));
+        */
         model.addAttribute("datosRegistros",registros);
         return "PaginaGraficoBootstrap";
     }

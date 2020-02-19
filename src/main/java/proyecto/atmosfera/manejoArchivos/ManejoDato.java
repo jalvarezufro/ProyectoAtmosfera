@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ManejoDato {
@@ -39,7 +41,7 @@ public class ManejoDato {
     */
 
     private Registro crearRegistro(String linea) throws ParseException {
-        String datos[] = linea.split(";");
-        return new Registro(datos[0],Integer.parseInt(datos[1]),datos[2],datos[3],Double.parseDouble(datos[4]),Double.parseDouble(datos[5]));
+        String datos[] = linea.split(",");
+        return new Registro(datos[0], datos[1],datos[2],Double.parseDouble(datos[3]),Double.parseDouble(datos[4]));
     }
 }
