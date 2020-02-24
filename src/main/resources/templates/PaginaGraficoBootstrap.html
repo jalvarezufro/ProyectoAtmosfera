@@ -5,6 +5,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Gráfico</title>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -89,7 +93,7 @@
                 <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:300px; height:300px; margin-top: 15%; margin-left: 20%">
             </div>
         </div>
-        <div class="row" style="margin-top:2%">
+        <div class="row" style="margin-top:2%; margin-left:5%">
             <div class="col-md-12">
                 <div id="my_dataviz"></div>
             </div>
@@ -110,8 +114,8 @@
 <script>
     function hacerPeticion() {
       document.getElementById("my_dataviz").innerHTML = '';
-      var xhttp = new XMLHttpRequest();
       var fecha = document.getElementById("fechaInicio").value;
+      var xhttp = new XMLHttpRequest();
       xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
       xhttp.send();
       xhttp.onreadystatechange = function() {
@@ -127,7 +131,7 @@
     function generarGrafico(data) {
 
     // set the dimensions and margins of the graph
-    var margin = { top: 80, right: 25, bottom: 30, left: 40 },
+    var margin = { top: 80, right: 25, bottom: 30, left: 80 },
         width = 1500 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 

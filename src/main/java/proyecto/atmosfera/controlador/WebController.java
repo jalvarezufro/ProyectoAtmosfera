@@ -41,14 +41,6 @@ public class WebController {
         return "PaginaBienvenidaBootstrap";
     }
 
-    @RequestMapping(value= "/obtenerFechaInicio", method = RequestMethod.GET)
-    public ArrayList<Registro> enviarDatos(@RequestParam(name = "fechaInicio", required = true) String fecha){
-        ManejoDato manejoDato = new ManejoDato();
-        ControlRegistro controlRegistro = new ControlRegistro();
-        ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
-        ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
-        return datosFinales;
-    }
 
     @RequestMapping("/PaginaGraficoBootstrap")
     public String heatmap() throws ParseException {
