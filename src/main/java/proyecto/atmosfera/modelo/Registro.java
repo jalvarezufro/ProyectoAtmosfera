@@ -19,7 +19,7 @@ public class Registro {
 
     public Registro(String sector,LocalDate fecha, String hora, double mp10, double mp25) throws ParseException {
         this.fecha = fecha;
-        this.hora = hora;
+        this.hora = hora + ":00";
         this.sector = sector;     //sector.substring(0,sector.length()-1); Elimina el espacio al final.
         this.mp10 = mp10;
         this.mp25 = mp25;
@@ -60,7 +60,6 @@ public class Registro {
     public void setMp25(double mp25) {
         this.mp25 = mp25;
     }
-
 
     @Override
     public String
