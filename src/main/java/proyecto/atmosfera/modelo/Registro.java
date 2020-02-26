@@ -1,5 +1,7 @@
 package proyecto.atmosfera.modelo;
 
+import org.apache.tomcat.jni.Local;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -16,6 +18,7 @@ public class Registro {
     private String hora;
     private double mp10;
     private double mp25;
+    private String fechasas;
 
     public Registro(String sector,LocalDate fecha, String hora, double mp10, double mp25) throws ParseException {
         this.fecha = fecha;
@@ -23,6 +26,10 @@ public class Registro {
         this.sector = sector;     //sector.substring(0,sector.length()-1); Elimina el espacio al final.
         this.mp10 = mp10;
         this.mp25 = mp25;
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+
+        this.fechasas = fecha.format(dateTimeFormatter);
     }
 
     public String getSector() {
@@ -59,6 +66,10 @@ public class Registro {
 
     public void setMp25(double mp25) {
         this.mp25 = mp25;
+    }
+
+    public String getFechasas() {
+        return fechasas;
     }
 
     @Override

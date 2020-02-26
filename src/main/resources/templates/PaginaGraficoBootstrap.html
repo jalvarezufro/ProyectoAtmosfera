@@ -93,7 +93,7 @@
                 <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:300px; height:300px; margin-top: 15%; margin-left: 20%">
             </div>
         </div>
-        <div class="row" style="margin-top:2%">
+        <div class="row" style="margin-top:2%; margin-left:5%">
             <div class="col-md-12">
                 <div id="my_dataviz"></div>
             </div>
@@ -113,7 +113,7 @@
 
 <script>
     function hacerPeticion() {
-      document.getElementById("my_dataviz").innerHTML = '';  //actualizar gráfico sin que se sobreescriba
+      document.getElementById("my_dataviz").innerHTML = '';
       var fecha = document.getElementById("fechaInicio").value;
       var xhttp = new XMLHttpRequest();
       xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
@@ -144,10 +144,12 @@
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
+    //Read the data
+
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var myGroups = d3.map(data, function (d) { return d.hora; }).keys()
-    var myVars = d3.map(data, function (d) { return d.parsedDate; }).keys()
+    var myVars = d3.map(data, function (d) { return d.fechasas; }).keys()
 
     // Build X scales and axis:
     var x = d3.scaleBand()
@@ -167,7 +169,7 @@
         .domain(myVars)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 15)
+        .style("font-size", 10)
         .attr("stroke","white")
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()
@@ -212,11 +214,11 @@
 
     // add the squares
     svg.selectAll()
-        .data(data, function (d) { return d.hora + ':' + d.parsedDate; })
+        .data(data, function (d) { return d.hora + ':' + d.fechasas; })
         .enter()
         .append("rect")
         .attr("x", function (d) { return x(d.hora) })
-        .attr("y", function (d) { return y(d.parsedDate) })
+        .attr("y", function (d) { return y(d.fechasas) })
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("width", x.bandwidth())
@@ -246,7 +248,7 @@
         .style("font-size", "14px")
         .style("fill", "grey")
         .style("max-width", 400)
-        .text("Gráfico semanal con franjas horarias (0 a 23 horas)");
+        .text("A short description of the take-away message of this chart.");
 
     }
 </script>
