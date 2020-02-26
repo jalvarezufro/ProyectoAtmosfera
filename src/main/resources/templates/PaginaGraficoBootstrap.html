@@ -67,16 +67,16 @@
                 <form action="PaginaGraficoBootstrap.html">
                 <select class="select-css"  name="Sector" style="width:170px;margin-top: 20%;margin-bottom: 4%">
                     <option value="" selected disabled hidden>Seleccione sector</option>
-                    <option>Todos los sectores</option>
-                    <option>Amanecer</option>
-                    <option>Centro</option>
-                    <option>Pedro de Valdivia</option>
-                    <option>Universidad</option>
-                    <option>Sta. Rosa</option>
-                    <option>Poniente</option>
-                    <option>Labranza</option>
-                    <option>Fundo el carmen</option>
-                    <option>Pueblo Nuevo</option>
+                    <option value="Todos los sectores">Todos los sectores</option>
+                    <option value="Amanecer">Amanecer</option>
+                    <option value="Centro">Centro</option>
+                    <option value="Pedro de Valdivia">Pedro de Valdivia</option>
+                    <option value="Universidad">Universidad</option>
+                    <option value="Sta. Rosa">Sta. Rosa</option>
+                    <option value="Poniente">Poniente</option>
+                    <option value="Labranza">Labranza</option>
+                    <option value="Fundo el carmen">Fundo el carmen</option>
+                    <option value="Pueblo Nuevo">Pueblo Nuevo</option>
                 </select>
                     <h6>Seleccione la fecha de inicio:</h6>
                     <input type="text" id="fechaInicio" width="276">
@@ -149,7 +149,7 @@
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var myGroups = d3.map(data, function (d) { return d.hora; }).keys()
-    var myVars = d3.map(data, function (d) { return d.fecha; }).keys()
+    var myVars = d3.map(data, function (d) { return d.fechasas; }).keys()
 
     // Build X scales and axis:
     var x = d3.scaleBand()
@@ -214,11 +214,11 @@
 
     // add the squares
     svg.selectAll()
-        .data(data, function (d) { return d.hora + ':' + d.fecha; })
+        .data(data, function (d) { return d.hora + ':' + d.fechasas; })
         .enter()
         .append("rect")
         .attr("x", function (d) { return x(d.hora) })
-        .attr("y", function (d) { return y(d.fecha) })
+        .attr("y", function (d) { return y(d.fechasas) })
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("width", x.bandwidth())
