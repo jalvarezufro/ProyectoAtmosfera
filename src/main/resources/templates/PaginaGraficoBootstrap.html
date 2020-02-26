@@ -149,7 +149,7 @@
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
     var myGroups = d3.map(data, function (d) { return d.hora; }).keys()
-    var myVars = d3.map(data, function (d) { return d.fecha; }).keys()
+    var myVars = d3.map(data, function (d) { return d.fechaS; }).keys()
 
     // Build X scales and axis:
     var x = d3.scaleBand()
@@ -214,11 +214,11 @@
 
     // add the squares
     svg.selectAll()
-        .data(data, function (d) { return d.hora + ':' + d.fecha; })
+        .data(data, function (d) { return d.hora + ':' + d.fechaS; })
         .enter()
         .append("rect")
         .attr("x", function (d) { return x(d.hora) })
-        .attr("y", function (d) { return y(d.fecha) })
+        .attr("y", function (d) { return y(d.fechaS) })
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("width", x.bandwidth())
