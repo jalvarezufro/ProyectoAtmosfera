@@ -20,9 +20,11 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- Load color palettes -->
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-
+    <script th:inline="javascript">
+    var datos = [[${ datosRegistros }]];
+  </script>
 </head>
-<body>
+<body onload="generarGrafico(datos)">
 <header>
     <div class="card border-light">
         <img src="img/header.jpg" class="card-img-top" style="position: absolute" height="100%">
@@ -79,6 +81,7 @@
                     <option value="Pueblo Nuevo">Pueblo Nuevo</option>
                 </select>
                     <h6>Seleccione la fecha de inicio:</h6>
+                    <h6>Formato: dd/mm/yyyy</h6>
                     <input type="text" id="fechaInicio" width="276">
                 </form>
                 </div>
@@ -169,7 +172,7 @@
         .domain(myVars)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 10)
+        .style("font-size", 15)
         .attr("stroke","white")
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()

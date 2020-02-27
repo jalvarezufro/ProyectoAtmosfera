@@ -13,7 +13,5 @@ import java.util.ArrayList;
 @SpringBootApplication
 public class ProyectoAtmosferaApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ProyectoAtmosferaApplication.class, args);
-    }
+    public static void main(String[] args) {SpringApplication.run(ProyectoAtmosferaApplication.class, args);}
 }
