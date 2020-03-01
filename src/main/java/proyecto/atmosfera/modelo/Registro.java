@@ -1,30 +1,25 @@
 package proyecto.atmosfera.modelo;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class Registro {
 
     private String sector;
     private LocalDate fecha;
-    private String fechaS;
     private String hora;
     private double mp10;
     private double mp25;
+    private String fechasas;
 
-    public Registro(String sector,LocalDate fecha, String hora, double mp10, double mp25) throws ParseException {
+    public Registro(String sector,LocalDate fecha, String hora, double mp10, double mp25){
         this.fecha = fecha;
-        this.fechaS = fecha.format(DateTimeFormatter.ofPattern("dd/MM/yy"));
-        this.hora = hora;
-        this.sector = sector;     //sector.substring(0,sector.length()-1); Elimina el espacio al final.
+        this.hora = hora + ":00";
+        this.sector = sector;
         this.mp10 = mp10;
         this.mp25 = mp25;
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.fechasas = fecha.format(dateTimeFormatter);
     }
 
     public String getSector() {
@@ -63,10 +58,12 @@ public class Registro {
         this.mp25 = mp25;
     }
 
+    public String getFechasas() {
+        return fechasas;
+    }
 
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Registro: " + "sector= " + sector + ", fecha= " + fecha.format(DateTimeFormatter.ofPattern("dd/MM/yy")) + ", hora= " + hora + ", mp10= " + mp10 + ", mp25= " + mp25 + "\n";
     }
 

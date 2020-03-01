@@ -43,7 +43,7 @@ public class WebController {
 
 
     @RequestMapping("/PaginaGraficoBootstrap")
-    public String heatmap() throws ParseException {
+    public String heatmap(){
         //ArrayList<Registro> registros = new ArrayList<>();
         /*
         registros.add(new Registro("amanecer", "20/11/19","00:00",10.0,56.0));

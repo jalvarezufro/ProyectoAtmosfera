@@ -20,6 +20,7 @@ public class ControladorPeticion {
         ControlRegistro controlRegistro = new ControlRegistro();
         ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
         ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
+        datosFinales = controlRegistro.sectorAverage(datosFinales); //Poned el metodo en el gran metodo de selector de sectores, lo puse aqui para probarlo.
         return datosFinales;
     }
 
