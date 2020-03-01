@@ -19,7 +19,7 @@ public class Registro {
         this.mp10 = mp10;
         this.mp25 = mp25;
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        this.fechasas = fecha.format(dateTimeFormatter);
+        this.fechasas = fecha.getDayOfWeek() + " " + fecha.format(dateTimeFormatter);
     }
 
     public String getSector() {

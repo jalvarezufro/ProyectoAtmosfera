@@ -14,15 +14,19 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="CSS/PaginaGraficoBootstrap.css">
 
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- Load color palettes -->
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-
+    <script th:inline="javascript">
+    var datos = [[${ datosRegistros }]];
+  </script>
 </head>
-<body>
+<body onload="generarGrafico(datos)">
 <header>
     <div class="card border-light">
         <img src="img/header.jpg" class="card-img-top" style="position: absolute" height="100%">
@@ -48,7 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li>
-                <a class="navbar-brand" href="/home">VOLVER A PÁGINA PRINCIPAL</a>
+                <a class="navbar-brand" href="/">VOLVER A PÁGINA PRINCIPAL</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -79,7 +83,8 @@
                     <option value="Pueblo Nuevo">Pueblo Nuevo</option>
                 </select>
                     <h6>Seleccione la fecha de inicio:</h6>
-                    <input type="text" id="fechaInicio" width="276">
+                    <h6>Formato: dd/mm/yyyy</h6>
+                    <input id="datepicker" width="270" >
                 </form>
                 </div>
             </div>
@@ -101,6 +106,7 @@
     </div>
 </div>
 
+<!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -110,11 +116,20 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        -->
+
+
+<script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd/mm/yyyy'
+        });
+    </script>
 
 <script>
     function hacerPeticion() {
       document.getElementById("my_dataviz").innerHTML = '';
-      var fecha = document.getElementById("fechaInicio").value;
+      var fecha = document.getElementById("datepicker").value;
       var xhttp = new XMLHttpRequest();
       xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
       xhttp.send();
@@ -131,7 +146,7 @@
     function generarGrafico(data) {
 
     // set the dimensions and margins of the graph
-    var margin = { top: 80, right: 25, bottom: 30, left: 80 },
+    var margin = { top: 80, right: 25, bottom: 30, left: 200 },
         width = 1500 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
@@ -170,15 +185,15 @@
         .domain(myVars)
         .padding(0.05);
     svg.append("g")
-        .style("font-size", 10)
+        .style("font-size", 15)
         .attr("stroke","white")
         .call(d3.axisLeft(y).tickSize(0))
         .select(".domain").remove()
 
     // Build color scale
     var myColor = d3.scaleLinear()
-        .domain([0,50,100,150,200])
-        .range(['green', 'yellow', 'orange', 'red', 'purple']);
+        .domain([0,50,100,150,200,1000])
+        .range(['green', 'yellow', 'orange', 'red', 'purple', 'purple']);
 
     // create a tooltip
     var tooltip = d3.select("#my_dataviz")

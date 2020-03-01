@@ -22,7 +22,7 @@ public class ControlRegistro {
                     mid--;
                 }
                 int count = 0;
-                while (count < 7) { //para que entregue el arraylist semanal
+                while ((mid<list.size()-1)  && (count < 7)) { //para que entregue el arraylist semanal
                     if (!list.get(mid).getFecha().equals(list.get(mid+1).getFecha())) {
                         count++;
                     }
