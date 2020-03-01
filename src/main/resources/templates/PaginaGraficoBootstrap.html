@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="Cabezera" style="margin-top: 3%;margin-left: 25%;font-family: 'Verdana';font-style: normal">
-                        <h1>HEATMAP</h1>
+                        <font size="8">HEATMAP</font>
                     </div>
                 </div>
             </div>
@@ -66,39 +66,53 @@
     <img src="img/fondo.png" class="card-img-top" style="position: absolute" height="auto">
     <div class="container-fluid border">
         <div class="row" style="margin-top: 2%">
-            <div class="col-md-6">
-                <div style="margin-left: 15%">
+            <div class="col-md-8">
+                <div style="margin-left: 30%;margin-top: 8%">
                 <form action="PaginaGraficoBootstrap.html">
-                <select class="select-css"  name="Sector" style="width:170px;margin-top: 20%;margin-bottom: 4%">
-                    <option value="" selected disabled hidden>Seleccione sector</option>
-                    <option value="Todos los sectores">Todos los sectores</option>
-                    <option value="Amanecer">Amanecer</option>
-                    <option value="Centro">Centro</option>
-                    <option value="Pedro de Valdivia">Pedro de Valdivia</option>
-                    <option value="Universidad">Universidad</option>
-                    <option value="Sta. Rosa">Sta. Rosa</option>
-                    <option value="Poniente">Poniente</option>
-                    <option value="Labranza">Labranza</option>
-                    <option value="Fundo el carmen">Fundo el carmen</option>
-                    <option value="Pueblo Nuevo">Pueblo Nuevo</option>
-                </select>
-                    <h6>Seleccione la fecha de inicio:</h6>
-                    <h6>Formato: dd/mm/yyyy</h6>
+                    <font size=6>SELECCIONE LA FECHA DE INICIO:</font>
+                    <br>
+                    <font size=6>FORMATO: DD/MM/YYYY</font>
+                    <br>
+                    <font size=6>IMPORTANTE: POR EL MOMENTO SÓLO HAY DATOS ENTRE EL 18/04/2019 Y 20/08/2019</font>
+                    <br>
+                    <br>
                     <input id="datepicker" width="270" >
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                        <select class="select-css"  name="Sector" style="width:300px;margin-bottom: 4%;margin-top: 6%">
+                                <option value="" selected disabled hidden>Seleccione sector</option>
+                                <option value="Todos los sectores">Temuco (todos los sectores)</option>
+                                <option value="Amanecer">Amanecer</option>
+                                <option value="Centro">Centro</option>
+                                <option value="Pedro de Valdivia">Pedro de Valdivia</option>
+                                <option value="Universidad">Universidad</option>
+                                <option value="Sta. Rosa">Sta. Rosa</option>
+                                <option value="Poniente">Poniente</option>
+                                <option value="Labranza">Labranza</option>
+                                <option value="Fundo el carmen">Fundo el carmen</option>
+                                <option value="Pueblo Nuevo">Pueblo Nuevo</option>
+                    </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="button" style="margin-bottom: 15%;margin-top: 5%">
+                                <a class="btn btn-primary btn-lg btn-blue" style="position: relative;background-color: #112953" href="#Grafico"
+                                   onclick="hacerPeticion()">Generar Gráfico</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </form>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="button" style="margin-bottom: 15%;margin-top: 75%">
-                    <a class="btn btn-primary btn-lg btn-blue" style="position: relative;background-color: #112953" href="#Grafico"
-                       onclick="hacerPeticion()">Generar Gráfico</a>
-                </div>
-            </div>
+
             <div class="col-md-4">
-                <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:300px; height:300px; margin-top: 15%; margin-left: 20%">
+                <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:450px; height:450px; margin-top: 15%">
             </div>
         </div>
-        <div class="row" style="margin-top:2%; margin-left:5%">
+        <div class="row" style="margin-top:4%; margin-left:13%">
             <div class="col-md-12">
                 <div id="my_dataviz"></div>
             </div>
