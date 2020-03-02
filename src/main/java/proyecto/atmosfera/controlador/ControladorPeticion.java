@@ -19,7 +19,7 @@ public class ControladorPeticion {
         ManejoDato manejoDato = new ManejoDato();
         ControlRegistro controlRegistro = new ControlRegistro();
         ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
-       // ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
+        // ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
         ArrayList<Registro> datosFinales = controlRegistro.escogerMetodo(fecha,registros,sector); //Poned el metodo en el gran metodo de selector de sectores, lo puse aqui para probarlo.
         return datosFinales;
     }

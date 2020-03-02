@@ -75,13 +75,14 @@ public class ControlRegistro {
         return datosFinales;
     }
 
+
     public ArrayList<Registro> escogerMetodo(String fechaInicio, ArrayList<Registro> list,String sector) {
         ArrayList<Registro> datosFinales = new ArrayList<>();
-        if(sector.trim().equals("todos los sectores")) {
-            datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), datosFinales);
+        if (sector.trim().equals("todos los sectores")) {
+            datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), list);
             datosFinales = sectorAverage(datosFinales);
 
-        }else{
+        } else {
             datosFinales = searchBySector(list, sector);
             datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), datosFinales);
 
@@ -89,7 +90,6 @@ public class ControlRegistro {
         }
 
 
-
-    return datosFinales;
+        return datosFinales;
     }
 }

@@ -81,18 +81,18 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                        <select class="select-css"  name="Sector" style="width:300px;margin-bottom: 4%;margin-top: 6%">
+                        <select class="select-css"  name="sector" id="sector" style="width:300px;margin-bottom: 4%;margin-top: 6%">
                                 <option value="" selected disabled hidden>Seleccione sector</option>
-                                <option value="Todos los sectores">Temuco (todos los sectores)</option>
-                                <option value="Amanecer">Amanecer</option>
-                                <option value="Centro">Centro</option>
-                                <option value="Pedro de Valdivia">Pedro de Valdivia</option>
-                                <option value="Universidad">Universidad</option>
-                                <option value="Sta. Rosa">Sta. Rosa</option>
-                                <option value="Poniente">Poniente</option>
-                                <option value="Labranza">Labranza</option>
-                                <option value="Fundo el carmen">Fundo el carmen</option>
-                                <option value="Pueblo Nuevo">Pueblo Nuevo</option>
+                                <option value="todos los sectores">Temuco (todos los sectores)</option>
+                                <option value="amanecer">Amanecer</option>
+                                <option value="centro">Centro</option>
+                                <option value="pedro de Valdivia">Pedro de Valdivia</option>
+                                <option value="universidad">Universidad</option>
+                                <option value="sta. Rosa">Sta. Rosa</option>
+                                <option value="poniente">Poniente</option>
+                                <option value="labranza">Labranza</option>
+                                <option value="fundo el carmen">Fundo el carmen</option>
+                                <option value="pueblo Nuevo">Pueblo Nuevo</option>
                     </select>
                         </div>
 
@@ -142,19 +142,20 @@
 
 <script>
     function hacerPeticion() {
-      document.getElementById("my_dataviz").innerHTML = '';
-      var fecha = document.getElementById("datepicker").value;
-      var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
-      xhttp.send();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var datos = JSON.parse(xhttp.response);
-          generarGrafico(datos);
+        document.getElementById("my_dataviz").innerHTML = '';
+        var fecha = document.getElementById("datepicker").value;
+        var sector = document.getElementById("sector").value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha+"&sector="+sector, true);
+        xhttp.send();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var datos = JSON.parse(xhttp.response);
+                generarGrafico(datos);
+            }
         }
-      }
     }
-    </script>
+</script>
 
 <script>
     function generarGrafico(data) {
