@@ -41,6 +41,7 @@ public class WebController {
         ControlRegistro controlRegistro = new ControlRegistro();
         ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
         ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse("01/06/2019", DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
+        datosFinales = controlRegistro.sectorAverage(datosFinales);
         model.addAttribute("datosRegistros",datosFinales);
         return "PaginaGraficoBootstrap";
     }

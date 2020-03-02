@@ -51,7 +51,7 @@ public class ControlRegistro {
             } else {    //Al encontrarse un dato distinto a la base.
                 mp10Sum = mp10Sum/count;    //Calcula el promedio con la suma y la veces.
                 mp25Sum = mp25Sum/count;
-                finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora(), mp10Sum, mp25Sum)); //Crea un registro en final data con el promedio.
+                finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), mp10Sum, mp25Sum)); //Crea un registro en final data con el promedio.
                 base = i;   //Cambia la base a el nuevo dato a comparar.
                 mp10Sum= base.getMp10();    //Comienza la suma siguiente
                 mp25Sum = base.getMp25();
@@ -60,7 +60,7 @@ public class ControlRegistro {
         }
         mp10Sum = mp10Sum/count;    //Calcula el promedio del útimo grupo
         mp25Sum = mp25Sum/count;
-        finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora(), mp10Sum, mp25Sum)); //Crea el último registro de finalData.
+        finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), mp10Sum, mp25Sum)); //Crea el último registro de finalData.
         return finalData;
     }
 
