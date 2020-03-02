@@ -10,7 +10,7 @@ Para este proyecto no se desarrolló una aplicación independiente en la cual ej
 - Que el proyecto sea leido por la IDE como MAVEN.
 - El JDK del proyecto sea el 11 (O superior).
 
-### Ejecución del programa 
+### Ejecución del programa :arrow_forward:
 Al iniciar la aplicación y considerando los datos provistos en la sección anterior, se debe iniciar el método main, que se localiza en la clase `ProyectoAtmosferaApplication`. Después de que se inicializa la consola de la IDE, deberás dirigirte a tu navegador favorito y entrar a la siguiente dirección:
 ```
 localhost:8080
