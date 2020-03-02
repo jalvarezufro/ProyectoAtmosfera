@@ -11,7 +11,7 @@ Para este proyecto no se desarrollo una aplicación independiente en la cual eje
 - El JDK del proyecto sea el 11 (O superior).
 
 ### Ejecución del programa 
-En orden de iniciar la aplicación y considerando los datos dados en la sección anterior, se debe iniciar el método main, que se localiza en la clase `ProyectoAtmosferaApplication`. Después de que se ejecuta la consola de la IDE, tendrás que ir a tu navegador favorito y entrar la al siguiente direccion:
+En orden de iniciar la aplicación y considerando los datos dados en la sección anterior, se debe iniciar el método main, que se localiza en la clase `ProyectoAtmosferaApplication`. Después de que se ejecuta la consola de la IDE, tendrás que ir a tu navegador favorito y entrar a la siguiente direccion:
 ```
 localhost:8080
 ```
