@@ -19,10 +19,10 @@ Con eso ya habras abierto el proyecto.
 
 ## Construido con  :wrench:
 - [Maven](https://maven.apache.org/) - Manejador de dependencias
-- [String Boot](https://spring.io/projects/spring-boot) - Framework web.
-- [d3.sj](https://d3js.org/) - Heatmap.
-- [jquery](https://jquery.com/download/) - Datapicker.
-- [Bootstrap](https://getbootstrap.com/) - Diseño
+- [Spring Boot](https://spring.io/projects/spring-boot) - Framework web.
+- [d3.js](https://d3js.org/) - Heatmap.
+- [Jquery 3.3.1](https://jquery.com/download/) - Datapicker.
+- [Bootstrap 4.3.1](https://getbootstrap.com/) - Diseño
 
 ## Autores :bust_in_silhouette:
 - **Diego Lagos** - [diegolagosb](https://github.com/diegolagosb)
