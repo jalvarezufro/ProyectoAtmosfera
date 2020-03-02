@@ -1,8 +1,11 @@
 package proyecto.atmosfera.controlador;
 
+import proyecto.atmosfera.manejoArchivos.ManejoDato;
 import proyecto.atmosfera.modelo.Registro;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
 
 public class ControlRegistro {
 
@@ -59,5 +62,34 @@ public class ControlRegistro {
         mp25Sum = mp25Sum/count;
         finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora(), mp10Sum, mp25Sum)); //Crea el último registro de finalData.
         return finalData;
+    }
+
+    public ArrayList<Registro> searchBySector( ArrayList<Registro> list, String sector) {
+
+        ArrayList<Registro> datosFinales = new ArrayList<>();
+        for(int i =0; i<list.size()-1; i++){
+            if(list.get(i).getSector().trim().equals(sector)){
+                datosFinales.add(list.get(i));
+            }
+        }
+        return datosFinales;
+    }
+
+    public ArrayList<Registro> escogerMetodo(String fechaInicio, ArrayList<Registro> list,String sector) {
+        ArrayList<Registro> datosFinales = new ArrayList<>();
+        if(sector.trim().equals("todos los sectores")) {
+            datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), datosFinales);
+            datosFinales = sectorAverage(datosFinales);
+
+        }else{
+            datosFinales = searchBySector(list, sector);
+            datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), datosFinales);
+
+
+        }
+
+
+
+    return datosFinales;
     }
 }

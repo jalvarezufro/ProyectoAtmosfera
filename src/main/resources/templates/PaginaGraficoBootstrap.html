@@ -69,18 +69,18 @@
             <div class="col-md-6">
                 <div style="margin-left: 15%">
                 <form action="PaginaGraficoBootstrap.html">
-                <select class="select-css"  name="Sector" style="width:170px;margin-top: 20%;margin-bottom: 4%">
+                <select class="select-css"  name="sector" id= "sector" style="width:170px;margin-top: 20%;margin-bottom: 4%">
                     <option value="" selected disabled hidden>Seleccione sector</option>
-                    <option value="Todos los sectores">Todos los sectores</option>
-                    <option value="Amanecer">Amanecer</option>
-                    <option value="Centro">Centro</option>
-                    <option value="Pedro de Valdivia">Pedro de Valdivia</option>
-                    <option value="Universidad">Universidad</option>
-                    <option value="Sta. Rosa">Sta. Rosa</option>
-                    <option value="Poniente">Poniente</option>
-                    <option value="Labranza">Labranza</option>
-                    <option value="Fundo el carmen">Fundo el carmen</option>
-                    <option value="Pueblo Nuevo">Pueblo Nuevo</option>
+                    <option value="todos los sectores">Temuco</option>
+                    <option value="amanecer">Amanecer</option>
+                    <option value="centro">Centro</option>
+                    <option value="pedro de Valdivia">Pedro de Valdivia</option>
+                    <option value="universidad">Universidad</option>
+                    <option value="sta. Rosa">Sta. Rosa</option>
+                    <option value="poniente">Poniente</option>
+                    <option value="labranza">Labranza</option>
+                    <option value="fundo el carmen">Fundo el carmen</option>
+                    <option value="pueblo Nuevo">Pueblo Nuevo</option>
                 </select>
                     <h6>Seleccione la fecha de inicio:</h6>
                     <h6>Formato: dd/mm/yyyy</h6>
@@ -130,8 +130,9 @@
     function hacerPeticion() {
       document.getElementById("my_dataviz").innerHTML = '';
       var fecha = document.getElementById("datepicker").value;
+      var sector = document.getElementById("sector").value;
       var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha , true);
+      xhttp.open("GET", "/obtenerFechaInicio?fechaInicio=" + fecha+"&sector="+sector, true);
       xhttp.send();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

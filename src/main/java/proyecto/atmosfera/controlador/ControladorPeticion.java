@@ -15,12 +15,12 @@ import java.util.ArrayList;
 public class ControladorPeticion {
 
     @RequestMapping(value= "/obtenerFechaInicio", method = RequestMethod.GET)
-    public ArrayList<Registro> enviarDatos(@RequestParam(name = "fechaInicio", required = true) String fecha){
+    public ArrayList<Registro> enviarDatos(@RequestParam(name = "fechaInicio", required = true) String fecha,@RequestParam(name = "sector", required = true) String sector) {
         ManejoDato manejoDato = new ManejoDato();
         ControlRegistro controlRegistro = new ControlRegistro();
         ArrayList<Registro> registros = manejoDato.leerArchivo("src/archivos/Historial_SmartCity_2019.csv");
-        ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
-        datosFinales = controlRegistro.sectorAverage(datosFinales); //Poned el metodo en el gran metodo de selector de sectores, lo puse aqui para probarlo.
+       // ArrayList<Registro> datosFinales = controlRegistro.binarySearch(LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy")),registros);
+        ArrayList<Registro> datosFinales = controlRegistro.escogerMetodo(fecha,registros,sector); //Poned el metodo en el gran metodo de selector de sectores, lo puse aqui para probarlo.
         return datosFinales;
     }
 
