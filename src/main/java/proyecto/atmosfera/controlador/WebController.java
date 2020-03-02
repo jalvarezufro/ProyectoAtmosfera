@@ -17,23 +17,10 @@ import java.util.ArrayList;
 @RequestMapping()
 public class WebController {
 
-    /*@RequestMapping("")
-    public String index(Model model) {
-        ManejoDato md = new ManejoDato();
-        ManejoRegistro rController = new ManejoRegistro();
-        ArrayList<Registro> ListaRegistros = rController.registrosPorHora(md.leerArchivo("ProyectoAtmosfera.csv"));
-        String [][] arraymirar = ListaRegistros.get(1).contarValor(100,ListaRegistros,"30/04/2019","MP10");
-        model.addAttribute("registros", ListaRegistros);
-        model.addAttribute("array", arraymirar);
-        return "index";
-    }
-    */
-
     @RequestMapping("")
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
-
 
     @RequestMapping("/PaginaGraficoBootstrap")
     public String heatmap(Model model) {

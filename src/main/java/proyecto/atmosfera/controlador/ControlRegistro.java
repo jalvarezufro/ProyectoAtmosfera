@@ -1,6 +1,5 @@
 package proyecto.atmosfera.controlador;
 
-import proyecto.atmosfera.manejoArchivos.ManejoDato;
 import proyecto.atmosfera.modelo.Registro;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -51,7 +50,7 @@ public class ControlRegistro {
             } else {    //Al encontrarse un dato distinto a la base.
                 mp10Sum = mp10Sum/count;    //Calcula el promedio con la suma y la veces.
                 mp25Sum = mp25Sum/count;
-                finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), mp10Sum, mp25Sum)); //Crea un registro en final data con el promedio.
+                finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), Math.floor(mp10Sum*100)/100, Math.floor(mp10Sum*100)/100)); //Crea un registro en final data con el promedio.
                 base = i;   //Cambia la base a el nuevo dato a comparar.
                 mp10Sum= base.getMp10();    //Comienza la suma siguiente
                 mp25Sum = base.getMp25();
@@ -60,12 +59,11 @@ public class ControlRegistro {
         }
         mp10Sum = mp10Sum/count;    //Calcula el promedio del útimo grupo
         mp25Sum = mp25Sum/count;
-        finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), mp10Sum, mp25Sum)); //Crea el último registro de finalData.
+        finalData.add(new Registro("Todos los sectores", base.getFecha(), base.getHora().substring(0, base.getHora().length() -3), Math.floor(mp10Sum*100)/100, Math.floor(mp10Sum*100)/100)); //Crea el último registro de finalData.
         return finalData;
     }
 
     public ArrayList<Registro> searchBySector( ArrayList<Registro> list, String sector) {
-
         ArrayList<Registro> datosFinales = new ArrayList<>();
         for(int i =0; i<list.size()-1; i++){
             if(list.get(i).getSector().trim().equals(sector)){
@@ -75,21 +73,15 @@ public class ControlRegistro {
         return datosFinales;
     }
 
-
     public ArrayList<Registro> escogerMetodo(String fechaInicio, ArrayList<Registro> list,String sector) {
         ArrayList<Registro> datosFinales = new ArrayList<>();
         if (sector.trim().equals("todos los sectores")) {
             datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), list);
             datosFinales = sectorAverage(datosFinales);
-
         } else {
             datosFinales = searchBySector(list, sector);
             datosFinales = binarySearch(LocalDate.parse(fechaInicio, DateTimeFormatter.ofPattern("dd/MM/yyyy")), datosFinales);
-
-
         }
-
-
         return datosFinales;
     }
 }
