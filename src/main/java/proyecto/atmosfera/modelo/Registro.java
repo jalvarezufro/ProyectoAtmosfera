@@ -12,6 +12,14 @@ public class Registro {
     private double mp25;
     private String fechasas;
 
+    /**
+     * Cosnturctor principal de la clase registro.
+     * @param sector - String con el sector donde se registraron los datos.
+     * @param fecha - LocalDate con la fecha cuando se registraron los datos.
+     * @param hora - String con la  hora a la cual se registraron los datos.
+     * @param mp10 - Double con la cantidad de mp10 registrado.
+     * @param mp25 - Double con la cantidad de mp2.5 registrado.
+     */
     public Registro(String sector,LocalDate fecha, String hora, double mp10, double mp25){
         this.fecha = fecha;
         this.hora = hora + ":00";
@@ -58,6 +66,10 @@ public class Registro {
         this.mp25 = mp25;
     }
 
+    /**
+     * Método que entrega el formato del layout para el heatmap.
+     * @return String con la fecha.
+     */
     public String getFechasas() {
         return fechasas;
     }

@@ -17,11 +17,21 @@ import java.util.ArrayList;
 @RequestMapping()
 public class ControladorWeb {
 
+    /**
+     * Inicializador de la página de bienvenida del proyecto.
+     * @param model - Clase requerida por SpringBoot.
+     * @return Template de la página (.html)
+     */
     @RequestMapping("")
     public String index(Model model){
         return "PaginaBienvenidaBootstrap";
     }
 
+    /**
+     * Inicializa la página del heatmap, leyendo los archivos de la base de datos y seleccionando un dato por defecto en el proceso.
+     * @param model - Clase requerida por SpringBoot.
+     * @return Template de la página (.html)
+     */
     @RequestMapping("/PaginaGraficoBootstrap")
     public String heatmap(Model model) {
         ManejoDato manejoDato = new ManejoDato();

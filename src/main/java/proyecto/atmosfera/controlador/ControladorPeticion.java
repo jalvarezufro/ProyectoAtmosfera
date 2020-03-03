@@ -11,6 +11,12 @@ import java.util.ArrayList;
 @RestController
 public class ControladorPeticion {
 
+    /**
+     * Método que se encarga de recibir la peticipón y cumplirla, generando el grupo de datos necesarios para hacer un nuevo heatmap.
+     * @param fecha - String con la peticion de fecha
+     * @param sector - String con la petición del sector
+     * @return  ArrayList con los datos pedidos.
+     */
     @RequestMapping(value= "/obtenerFechaInicio", method = RequestMethod.GET)
     public ArrayList<Registro> enviarDatos(@RequestParam(name = "fechaInicio", required = true) String fecha,@RequestParam(name = "sector", required = true) String sector) {
         ManejoDato manejoDato = new ManejoDato();
