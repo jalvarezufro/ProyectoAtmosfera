@@ -9,13 +9,14 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="CSS/PaginaGraficoBootstrap.css">
 
     <!-- Load d3.js -->
@@ -24,7 +25,8 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script th:inline="javascript">
     var datos = [[${ datosRegistros }]];
-  </script>
+
+    </script>
 </head>
 <body onload="generarGrafico(datos)">
 <header>
@@ -34,12 +36,14 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="logoUfro">
-                        <a href="http://www.ufro.cl"><img src="img/logoUfro.png" class="img-fluid" width="30%" height="30%" href="www.ufro.cl"
-                         style="margin-top: 2%;margin-bottom: 2%; position: relative;"></a>
+                        <a href="http://www.ufro.cl"><img src="img/logoUfro.png" class="img-fluid" width="30%"
+                                                          height="30%" href="www.ufro.cl"
+                                                          style="margin-top: 2%;margin-bottom: 2%; position: relative;"></a>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="Cabezera" style="margin-top: 3%;margin-left: 25%;font-family: 'Verdana';font-style: normal">
+                    <div class="Cabezera"
+                         style="margin-top: 3%;margin-left: 25%;font-family: 'Verdana';font-style: normal">
                         <font size="8">HEATMAP</font>
                     </div>
                 </div>
@@ -68,52 +72,56 @@
         <div class="row" style="margin-top: 2%">
             <div class="col-md-8">
                 <div style="margin-left: 30%;margin-top: 8%">
-                <form action="PaginaGraficoBootstrap.html">
-                    <font size=6>SELECCIONE LA FECHA DE INICIO:</font>
-                    <br>
-                    <font size=6>FORMATO: DD/MM/YYYY</font>
-                    <br>
-                    <font size=6>IMPORTANTE: POR EL MOMENTO SÓLO HAY DATOS ENTRE EL 18/04/2019 Y 20/08/2019</font>
-                    <br>
-                    <br>
-                    <input id="datepicker" width="270" >
+                    <form action="PaginaGraficoBootstrap.html">
+                        <font size=6>SELECCIONE LA FECHA DE INICIO:</font>
+                        <br>
+                        <font size=6>FORMATO: DD/MM/YYYY</font>
+                        <br>
+                        <font size=6>IMPORTANTE: POR EL MOMENTO SÓLO HAY DATOS ENTRE EL 18/04/2019 Y 20/08/2019</font>
+                        <br>
+                        <br>
+                        <input id="datepicker" width="270">
 
-                    <div class="row">
+                        <div class="row">
 
-                        <div class="col-md-6">
-                        <select class="select-css"  name="sector" id="sector" style="width:300px;margin-bottom: 4%;margin-top: 6%">
-                                <option value="" selected disabled hidden>Seleccione sector</option>
-                                <option value="todos los sectores">Temuco (todos los sectores)</option>
-                                <option value="amanecer">Amanecer</option>
-                                <option value="centro">Centro</option>
-                                <option value="pedro de Valdivia">Pedro de Valdivia</option>
-                                <option value="universidad">Universidad</option>
-                                <option value="sta. Rosa">Sta. Rosa</option>
-                                <option value="poniente">Poniente</option>
-                                <option value="labranza">Labranza</option>
-                                <option value="fundo el carmen">Fundo el carmen</option>
-                                <option value="pueblo Nuevo">Pueblo Nuevo</option>
-                    </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="button" style="margin-bottom: 15%;margin-top: 5%">
-                                <a class="btn btn-primary btn-lg btn-blue" style="position: relative;background-color: #112953" href="#Grafico"
-                                   onclick="hacerPeticion()">Generar Gráfico</a>
+                            <div class="col-md-6">
+                                <select class="select-css" name="sector" id="sector"
+                                        style="width:300px;margin-bottom: 4%;margin-top: 6%">
+                                    <option value="" selected disabled hidden>Seleccione sector</option>
+                                    <option value="todos los sectores">Temuco (todos los sectores)</option>
+                                    <option value="amanecer">Amanecer</option>
+                                    <option value="centro">Centro</option>
+                                    <option value="pedro valdivia">Pedro de Valdivia</option>
+                                    <option value="universidad">Universidad</option>
+                                    <option value="santa rosa">Sta. Rosa</option>
+                                    <option value="poniente">Poniente</option>
+                                    <option value="labranza">Labranza</option>
+                                    <option value="el carmen">Fundo el carmen</option>
+                                    <option value="pueblo nuevo">Pueblo Nuevo</option>
+                                </select>
                             </div>
-                        </div>
 
-                    </div>
-                </form>
+                            <div class="col-md-6">
+                                <div class="button" style="margin-bottom: 15%;margin-top: 5%">
+                                    <a class="btn btn-primary btn-lg btn-blue"
+                                       style="position: relative;background-color: #112953" href="#Grafico"
+                                       onclick="hacerPeticion()">Generar Gráfico</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <img src="img/valoresDeContaminacion.png" class="card-img-top" style="position: static; width:450px; height:450px; margin-top: 15%">
+                <img src="img/valoresDeContaminacion.png" class="card-img-top"
+                     style="position: static; width:450px; height:450px; margin-top: 15%">
             </div>
         </div>
-        <div class="row" style="margin-top:4%; margin-left:13%">
+        <div class="row" style="margin-top:1%;margin-left:2%">
             <div class="col-md-12">
+                <a name="Grafico"></a>
                 <div id="my_dataviz"></div>
             </div>
         </div>
@@ -133,12 +141,52 @@
         -->
 
 
-<script>
+<script>        
         $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4',
-            format: 'dd/mm/yyyy'
+            format: 'dd/mm/yyyy',
+            minDate: "18/04/2019",
+            maxDate: "20/08/2019"
         });
-    </script>
+
+</script>
+
+
+<!-- Validar el formato de la fecha -->
+<script>
+    function validarFormatoFecha(campo) {
+      var RegExPattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/;
+      if ((campo.match(RegExPattern)) && (campo!='')) {
+            return true;
+      } else {
+            return false;
+      }
+    }
+
+</script>
+
+<!-- Validar si la fecha introducida es real -->
+<script>
+    function existeFecha(fecha){
+      var fechaf = fecha.split("/");
+      var day = fechaf[0];
+      var month = fechaf[1];
+      var year = fechaf[2];
+      var date = new Date(year,month,'0');
+      if((day-0)>(date.getDate()-0)){
+            return false;
+      }
+      return true;
+    }
+    function existeFecha2 (fecha) {
+        var fechaf = fecha.split("/");
+        var d = fechaf[0];
+        var m = fechaf[1];
+        var y = fechaf[2];
+        return m > 0 && m < 13 && y > 0 && y < 32768 && d > 0 && d <= (new Date(y, m, 0)).getDate();
+}
+
+</script>
 
 <script>
     function hacerPeticion() {
@@ -151,7 +199,21 @@
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var datos = JSON.parse(xhttp.response);
-                generarGrafico(datos);
+                if (Object.entries(datos).length === 0){
+                    alert("No hay datos para la fecha y el sector indicado. Por favor elija otros valores.")
+                }else{
+                    generarGrafico(datos);
+                }
+            }else{
+                if(validarFormatoFecha(fecha)){
+                        if(existeFecha(fecha)==false || existeFecha2(fecha)==false){
+                            alert("La fecha introducida no existe. Por favor ingrese una opción válida.");
+                        }
+                }else{
+                        alert("El formato de la fecha es incorrecto. Por favor ingrese una opción válida.");
+                }if (sector=="") {
+                    alert("Por favor ingrese un sector.");
+                }
             }
         }
     }
@@ -162,8 +224,8 @@
 
     // set the dimensions and margins of the graph
     var margin = { top: 80, right: 25, bottom: 30, left: 200 },
-        width = 1500 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        width = 1900 - margin.left - margin.right,
+        height = 520 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
@@ -173,8 +235,6 @@
         .append("g")
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-
-    //Read the data
 
 
     // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
@@ -268,20 +328,21 @@
         .attr("x", 0)
         .attr("y", -50)
         .attr("text-anchor", "left")
-        .style("font-size", "22px")
-        .text("A d3.js heatmap");
+        .style("font-size", "40px")
+        .text("Heatmap provisto por D3.js y adaptado para este proyecto");
 
     // Add subtitle to graph
     svg.append("text")
         .attr("x", 0)
         .attr("y", -20)
         .attr("text-anchor", "left")
-        .style("font-size", "14px")
-        .style("fill", "grey")
+        .style("font-size", "25px")
+        .style("fill", "black")
         .style("max-width", 400)
-        .text("A short description of the take-away message of this chart.");
+        .text("Descripción: gráfico semanal que permite visualizar los índices de contaminación (mp10) por franjas horarias en el(los) sector(res) que se requiera");
 
     }
+
 </script>
 
 </body>

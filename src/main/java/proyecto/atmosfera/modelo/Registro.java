@@ -13,7 +13,7 @@ public class Registro {
     private String fechasas;
 
     /**
-     * Cosnturctor principal de la clase registro.
+     * Constructor principal de la clase registro.
      * @param sector - String con el sector donde se registraron los datos.
      * @param fecha - LocalDate con la fecha cuando se registraron los datos.
      * @param hora - String con la  hora a la cual se registraron los datos.
